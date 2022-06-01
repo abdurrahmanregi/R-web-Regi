@@ -51,6 +51,6 @@ title: "Regi Kusumaatmadja"
 
 I am a Ph.D. student in Economics at VU Amsterdam and Tinbergen Institute, the Netherlands. My main research interests include Industrial Organization, Applied Econometrics, and the Economics of Innovation. 
 
-Besides my academic life, I have previously done some research and consultancy for private and public entities. In addition, I enjoy playing tennis (still a newb!) 
+Besides my academic life, I have previously done some research and consultancy for private and public entities. In addition, I enjoy playing tennis (still a newb!).
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/CV_RK.pdf" "newtab" >}}CV{{< /staticref >}}.
