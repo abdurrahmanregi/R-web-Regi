@@ -49,7 +49,7 @@ superuser: true
 title: "Regi Kusumaatmadja"
 ---
 
-I am a Ph.D. student in Economics at VU Amsterdam and Tinbergen Institute, the Netherlands. My supervisors are Sabien Dobbelaere and Jose Luis Moraga-Gonzalez. My main research interests include Industrial Organization, Applied Econometrics, and the Economics of Innovation. 
+I am a Ph.D. student in Economics at VU Amsterdam and Tinbergen Institute, the Netherlands. My supervisors are <a href="https://research.vu.nl/en/persons/sabien-dobbelaere" target="_blank">Sabien Dobbelaere</a> and <a href="https://sites.google.com/view/joseluismoraga/" target="_blank">Jose Luis Moraga-Gonzalez</a>. I am currently visiting the Department of Economics at the Pennsylvania State University under the invitation of <a href="http://personal.psu.edu/m7r/" target="_blank">Mark J. Roberts</a>. My main research interests include Industrial Organization, Applied Econometrics, and the Economics of Innovation. 
 
 I am currently trying to understand why firms decide to perform in-house R&D or outsource it to other entities. Another thing I am pondering now is what happens to the firm's direction of innovation, given certain changes in the market structure.
 
