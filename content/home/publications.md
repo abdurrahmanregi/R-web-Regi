@@ -1,5 +1,5 @@
 ---
-active: false
+active: true
 # An instance of the Pages widget.
 # Documentation: https://wowchemy.com/docs/page-builder/
 widget: pages
@@ -10,7 +10,7 @@ headless: true
 # Order that this section appears on the page.
 weight: 90
 
-title: Publications
+title: Publications, Working Papers, Work in Progress
 subtitle: ''
 
 content:
