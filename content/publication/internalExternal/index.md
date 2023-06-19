@@ -1,37 +1,23 @@
 ---
-active: false
-abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus
-  ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed
-  ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis
-  sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida
-  egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id
-  dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus.
-  Vestibulum sit amet erat at nulla eleifend gravida.
-author_notes:
-- Equal contribution
-- Equal contribution
+active: true
+abstract: This paper analyzes the costs and benefits of internal and external R&D activities. Using Dutch production and innovation surveys between 2000 and 2020, I document an increasing trend of internal  R&D in the Dutch IT industry, but not for external R&D, and present suggestive evidence that both internal and external R&D are complementary. To rationalize these findings, I build and estimate a dynamic discrete choice model of R&D, which includes specific investment costs of internal and external R&D. I find that the cost of doing external R&D is significantly much higher than the internal R&D, reflecting the transaction costs of such contract and explaining the observed small share of external-only R&D firms in the data. From the estimates of the model, I also find that the complementarity of these two R&D activities can be attributed to two sources; the cost and revenue sides. Finally, I provide some simulations of R&D subsidization programs that mimic the Innovation Box policy implemented by the Dutch government. 
 authors:
 - admin
-- Robert Ford
-date: "2013-07-01T00:00:00Z"
+date: "2023-06-21T00:00:00Z"
 doi: ""
 featured: true
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/pLCdAaMFLTE)'
+  caption: 'DALL-E: An R&D manager wondering whether to do in-house R&D or outsource it to other strategic partners'
   focal_point: ""
   preview_only: false
-projects:
-- example
-publication: In *Wowchemy Conference*
-publication_short: In *ICW*
+publication: Work in Progress
 publication_types:
 - "1"
 publishDate: "2017-01-01T00:00:00Z"
 slides: example
-summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus
-  ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
+summary: Here I am trying to understand why firms perform of in-house R&D (internal R&D) and/or contract out their R&D to other strategic entities (external R&D)
 tags: []
-title: An example conference paper
+title: Internal and External R&D: An analysis of costs and benefits
 url_code: ""
 url_dataset: ""
 url_pdf: ""
@@ -41,13 +27,3 @@ url_slides: ""
 url_source: ""
 url_video: ""
 ---
-
-{{% callout note %}}
-Click the _Cite_ button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-{{% /callout %}}
-
-{{% callout note %}}
-Create your slides in Markdown - click the _Slides_ button to check out the example.
-{{% /callout %}}
-
-Supplementary notes can be added here, including [code, math, and images](https://wowchemy.com/docs/writing-markdown-latex/).
