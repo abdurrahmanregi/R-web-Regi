@@ -1,6 +1,6 @@
 ---
-active: true
-cms_exclude: true
+active: false
+cms_exclude: false
 header:
   caption: ""
   image: ""

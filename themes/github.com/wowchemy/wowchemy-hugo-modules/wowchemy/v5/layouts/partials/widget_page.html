@@ -148,7 +148,10 @@
       {{end}}
     {{end}}
 
+    {{/* Only call the partial if the widget is not "publications" to avoid errors */}}
+    {{ if ne $widget "publications" }}
       {{ partial $widget_path $widget_args }}
+    {{ end }}
 
     {{if $use_cols}}
       </div>
@@ -162,4 +165,3 @@
 {{ if $has_mermaid }}
   {{ .Page.Store.Set "has_mermaid" true }}
 {{ end }}
-
