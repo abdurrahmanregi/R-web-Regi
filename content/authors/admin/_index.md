@@ -14,9 +14,8 @@ education:
 email: abdurrahman<dot>regi<at>gmail<dot>com
 highlight_name: true
 interests:
-- Industrial Organization
-- Applied Econometrics
-- Economics of Innovation
+- Applied Economics (Industrial Organization, Innovation)
+- First Principles Thinking
 #organizations:
 #- name: VU Amsterdam
 #  url: https://vu.nl/en
