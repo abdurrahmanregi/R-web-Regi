@@ -4,6 +4,6 @@ cms_exclude: true
 header:
   caption: ""
   image: ""
-title: Posts
-view: 2
+title: "Posts"
+view: 3
 ---
