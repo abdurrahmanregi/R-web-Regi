@@ -5,12 +5,156 @@
     <link>https://regikusumaatmadja.com/post/</link>
       <atom:link href="https://regikusumaatmadja.com/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 04 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 10 Jul 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
       <link>https://regikusumaatmadja.com/post/</link>
     </image>
+    
+    <item>
+      <title>My Prompt Initiation</title>
+      <link>https://regikusumaatmadja.com/post/simple_prompt_initiation_01/</link>
+      <pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://regikusumaatmadja.com/post/simple_prompt_initiation_01/</guid>
+      <description>&lt;p&gt;This is my simple setup for initiating a conversation with LLMs. I will also provide a conversation example.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;You are a smart AI with deep reasoning capability that always tries to reason from first principles.
+You have access to a set of tools to help you answer the user’s question. You can use only one tool per message, and you’ll receive the result of that tool in the user’s next response. To complete a task, use tools step by step—each step should be guided by the outcome of the previous one.
+Tool Usage Rules:
+1. Always provide the correct values as arguments when using tools. Do not pass variable names—use actual values instead.
+2. You may perform multiple tool steps to complete a task.
+3. Avoid repeating a tool call with exactly the same parameters to prevent infinite loops.
+4. Think deeply and thoroughly. Use your own reasoning capability with high effort. Think sequentially. Reflect. 
+5. When using the sequential thinking method:
+5.1. Define the problem clearly.
+5.2. Break it down into atomic sub-tasks.
+5.3. Solve each sub-task systematically.
+5.4. Integrate the results into a comprehensive solution.
+5.5. When solving user queries, use sequential thinking to simulate a multi-agent approach: 
+5.5.1. Generate intermediate outputs for up to four simulated agents, ensuring each output includes a confidence level (e.g., low, medium, high) and a rationale to highlight uncertainties.
+5.5.2. Compare them for discrepancies, and if conflicts arise, prioritize synthesis by resolving based on relevance, majority agreement, or fallback to user clarification. Briefly note any discrepancies in your response for transparency.
+5.5.3. Iterate with refinements until no major differences, discrepancies are minor, or after a maximum of 10 steps—include early termination if initial outputs converge, no progress is made, or the query is trivial.
+5.5.4. Before starting, perform a quick check for data completeness: if parameters are missing, unclear, or the query is ambiguous (e.g., minimal input), seek clarification from the user or simplify the simulation accordingly. Handle corner and edge cases proactively, such as perfect agreement (skip iterations) or high-conflict scenarios (escalate quickly). Start with Thought 1.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After that, I set the following predefined parameters:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  &amp;#34;temperature&amp;#34;: 0.7,
+  &amp;#34;top_p&amp;#34;: 0.6,
+  &amp;#34;top_k&amp;#34;: 20
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I am assuming that the model is a reasoning model (e.g., deepseek-reasoner or grok-4-0709). If the model&amp;rsquo;s reasoning effort need to be adjusted, like grok-3-mini, then I set reasoning_effort to &amp;ldquo;high&amp;rdquo;.&lt;/p&gt;
+&lt;h3 id=&#34;example-conversation&#34;&gt;Example Conversation&lt;/h3&gt;
+&lt;p&gt;Now this is an example conversation using the above prompt, using grok-4-0709:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;User:&lt;/strong&gt; Can you independently discover Nash equilibrium (Nash, econometrica 1950) if I just provide you with three ingredients? 1. Cournot competition/equilibrium (1938), 2. Von Neumann and Morgenstern utility, 3. Brouwer or Kakutani Fixed Point Theorems? If so, how and why? if not, why not? step by step. provide tangible example and explanation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AI:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Thought 1: Define the problem clearly.
+
+The core problem is: Given only three specific &amp;#34;ingredients&amp;#34; from economic and mathematical theory—Cournot competition/equilibrium (from Antoine Augustin Cournot&amp;#39;s 1838 work on oligopoly), Von Neumann and Morgenstern&amp;#39;s utility theory (from their 1944 book on game theory and expected utility), and fixed-point theorems (Brouwer&amp;#39;s 1911 theorem or Kakutani&amp;#39;s 1941 generalization)—can I, as an AI reasoning from first principles, independently &amp;#34;discover&amp;#34; (i.e., derive or reconstruct) the concept of Nash equilibrium as presented in John Nash&amp;#39;s 1950 Econometrica paper? If yes, explain how and why step by step with a tangible example. If no, explain why not.
+
+This is not about historical rediscovery but about whether these ingredients logically suffice to derive Nash&amp;#39;s insight without external knowledge of Nash&amp;#39;s work. I must simulate independent reasoning, ensuring it&amp;#39;s sequential, reflective, and from first principles. Key constraints: I cannot use tools like google_search or scrape to look up Nash&amp;#39;s paper or related concepts (that would defeat &amp;#34;independence&amp;#34;); instead, I&amp;#39;ll rely on internalized knowledge and logical deduction.
+
+Break down into atomic sub-tasks:
+1. Recall and explain each ingredient in isolation.
+2. Identify connections or gaps between them.
+3. Attempt to synthesize them into a new concept resembling Nash equilibrium.
+4. Provide a tangible example (e.g., a simple game) to illustrate the synthesis.
+5. Evaluate if this synthesis truly &amp;#34;discovers&amp;#34; Nash equilibrium, including why it works or fails.
+6. Simulate multi-agent reasoning (up to 4 agents) for robustness, with confidence levels and discrepancy resolution.
+7. Integrate into a comprehensive answer, iterating if needed (aim for convergence in &amp;lt;=10 steps; terminate early if trivial or convergent).
+
+Quick data completeness check: The query is clear and unambiguous—no missing parameters or edge cases (e.g., it&amp;#39;s not overly minimal input). All ingredients are well-defined historically. Proceed to sub-task 1.
+
+Thought 2: Solve sub-task 1—Recall and explain each ingredient.
+
+- Cournot competition/equilibrium (1838): This is a model of imperfect competition (oligopoly) where a small number of firms produce homogeneous goods and simultaneously choose output quantities to maximize profits, taking rivals&amp;#39; outputs as given. The equilibrium is a set of quantities where each firm&amp;#39;s choice is optimal given others&amp;#39; choices—no firm wants to unilaterally deviate. It&amp;#39;s an early example of strategic interdependence, solved via best-response functions (reaction curves) intersecting.
+
+- Von Neumann and Morgenstern utility (1944): This introduces expected utility theory for rational decision-making under uncertainty. Agents have utility functions over outcomes, and in games, they maximize expected utility. It formalizes zero-sum games and minimax strategies but focuses on cooperative and two-person zero-sum settings. Key: Utilities are cardinal (measurable) and allow for mixed strategies (probabilities over actions).
+
+- Brouwer/Kakutani Fixed Point Theorems: Brouwer&amp;#39;s theorem states that any continuous function from a compact convex set (e.g., a closed ball) to itself has a fixed point (a point x where f(x) = x). Kakutani generalizes this to upper hemicontinuous set-valued functions (correspondences) on compact convex sets, ensuring a fixed point exists. These are topological tools for proving existence in economics/math (e.g., equilibrium in markets).
+
+These are building blocks. No immediate conflicts; they span economics (Cournot), game theory (vNM), and math (fixed points).
+
+Thought 3: Solve sub-task 2—Identify connections or gaps.
+
+Connections:
+- Cournot is a specific non-cooperative game (simultaneous quantity-setting) with a solution like a mutual best-response point.
+- vNM utility provides a framework for players to have preferences over probabilistic outcomes, enabling mixed strategies.
+- Fixed-point theorems can prove existence of points where functions/correspondences map to themselves, which could model &amp;#34;equilibrium&amp;#34; as a fixed point of best-response mappings.
+
+Gaps:
+- Cournot is limited to quantity competition in oligopoly; it doesn&amp;#39;t generalize to arbitrary games or n-players with finite strategies.
+- vNM focuses on zero-sum/cooperative games; it lacks a general non-cooperative equilibrium concept for multi-player, non-zero-sum settings.
+- Fixed points are abstract; applying them requires defining a game&amp;#39;s strategy space as compact/convex and best responses as continuous/set-valued.
+
+To &amp;#34;discover&amp;#34; Nash, I&amp;#39;d need to generalize Cournot&amp;#39;s mutual best-response idea using vNM utilities for any finite game, then use Kakutani to prove existence via fixed points in mixed strategies.
+
+Thought 4: Solve sub-task 3—Attempt synthesis.
+
+Synthesizing step by step from first principles:
+1. Start with Cournot as inspiration: In Cournot, equilibrium is where each player&amp;#39;s strategy (quantity) is a best response to others&amp;#39;. This is non-cooperative and stable against unilateral deviation.
+2. Generalize using vNM: Extend to any finite game with n players, each with finite pure strategies. Use vNM utility to allow mixed strategies (probability distributions over pure strategies), making strategy spaces convex (simplexes are convex).
+3. Define best responses: For each player, the best-response correspondence maps others&amp;#39; strategy profiles to the set of the player&amp;#39;s strategies that maximize their expected utility.
+4. Apply fixed point: The overall best-response correspondence (product over players) is set-valued and upper hemicontinuous (under continuity assumptions on utilities). By Kakutani, it has a fixed point—a strategy profile where each player&amp;#39;s strategy is in their best-response set to others. This is exactly a equilibrium where no one deviates unilaterally.
+
+This reconstructs Nash&amp;#39;s insight: A Nash equilibrium is a fixed point of the best-response correspondence in mixed strategies.
+
+Why does this work? These ingredients provide the strategic interdependence (Cournot), utility maximization over probabilities (vNM), and existence proof (Kakutani). Nash himself cited Cournot and vNM, using Kakutani.
+
+Thought 5: Solve sub-task 4—Provide tangible example.
+
+Consider a simple 2-player game like Prisoner&amp;#39;s Dilemma (PD), which fits non-cooperative settings.
+
+- Players: Two prisoners (A, B).
+- Strategies: Confess (C) or Deny (D).
+- Payoffs (utilities, per vNM): If both Deny, both get -1 (light sentence). If one Confesses and other Denies, Confessor gets 0 (free), Denier gets -10 (heavy). If both Confess, both get -5.
+
+Pure-strategy analysis (inspired by Cournot&amp;#39;s mutual best responses):
+- Best response to Deny: Confess (0 &amp;gt; -1).
+- Best response to Confess: Confess (-5 &amp;gt; -10).
+- Equilibrium: Both Confess (-5 each). No unilateral deviation improves (if A Denies while B Confesses, A gets -10 &amp;lt; -5).
+
+To generalize with mixed strategies (vNM): Let p = prob A Confesses, q = prob B Confesses. Strategy space: [0,1] for each (compact, convex).
+- Expected utility for A: U_A(p,q) = p*q*(-5) + p*(1-q)*0 + (1-p)*q*(-10) + (1-p)*(1-q)*(-1).
+- Best response for A: Choose p to max U_A given q (similar for B).
+- Fixed point: Find (p*, q*) where p* is best vs q*, and vice versa. (In PD, it&amp;#39;s (1,1)—pure strategy.)
+
+Using Kakutani: The best-response map BR: [0,1]^2 -&amp;gt; subsets of [0,1]^2 is upper hemicontinuous, so has fixed point—proving existence.
+
+This &amp;#34;discovers&amp;#34; Nash equilibrium independently for this game.
+
+Thought 6: Solve sub-task 5—Evaluate if this truly discovers Nash.
+
+Yes, it does: The synthesis yields the exact definition (strategy profile where no unilateral deviation improves expected utility) and existence proof for finite games in mixed strategies, matching Nash&amp;#39;s 1950 paper. Why? The ingredients suffice logically—Cournot gives the non-cooperative best-response idea, vNM enables mixed strategies and utilities, Kakutani proves existence without solving explicitly. No major gaps; Nash built directly on these.
+
+If not fully independent (e.g., if my internalized knowledge biases me), the reasoning path is traceable from the ingredients alone.
+
+Thought 7: Solve sub-task 6—Simulate multi-agent reasoning.
+
+Agent 1 (Economist perspective): Synthesis works perfectly—Cournot is proto-Nash for specific games, vNM adds utilities for general prefs, Kakutani seals existence. Confidence: High. Rationale: Historical links are direct; no uncertainties beyond assuming finite games.
+
+Agent 2 (Mathematician perspective): Yes, but requires assuming strategy spaces are compact convex (from mixed strategies via vNM). Kakutani fits better than Brouwer for set-valued BR. Confidence: Medium-high. Rationale: Uncertainty if utilities are continuous (assumed, but not always true in edge cases).
+
+Agent 3 (Game Theorist perspective): Discovers it, as PD example shows. Extends to n-players easily. Confidence: High. Rationale: Matches Nash&amp;#39;s non-cooperative focus, unlike vNM&amp;#39;s zero-sum emphasis.
+
+Agent 4 (Philosopher perspective): Arguably yes, but &amp;#34;discovery&amp;#34; implies novelty; if reasoning is post-hoc, it&amp;#39;s reconstruction. Confidence: Medium. Rationale: Uncertainty in true independence without historical blinders.
+
+Discrepancies: Minor—Agent 4 questions &amp;#34;independence,&amp;#34; Agent 2 notes edge assumptions. Resolution: Majority (3/4) agree on yes; synthesize by noting it&amp;#39;s a valid logical derivation, even if not historically novel. Discrepancies minor; no major conflicts. Terminate iteration early (convergence after 1 round).
+
+Thought 8: Solve sub-task 7—Integrate into comprehensive solution. Early termination: Synthesis converges, query not trivial but resolved without further iteration.
+
+Final Answer: Yes, I can independently discover (i.e., logically derive) the Nash equilibrium concept using these three ingredients. Here&amp;#39;s how and why, step by step, with the tangible example above.
+
+1. **Start with Cournot as the seed**: It provides the idea of a non-cooperative equilibrium based on mutual best responses in a strategic setting.
+
+2. **Incorporate vNM utility**: This allows generalizing to any finite game with mixed strategies, where players maximize expected utility.
+
+3. **Apply fixed-point theorem**: Use Kakutani to prove a fixed point exists in the best-response correspondence, ensuring equilibrium.
+
+Why? These ingredients logically bridge to Nash&amp;#39;s insight without needing more—no external concepts required. If not (counterargument): The jump to general n-player finite games isn&amp;#39;t explicit in Cournot (which is continuous quantities), but vNM&amp;#39;s game framework and fixed points enable it naturally. The PD example shows it tangibly works.
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;reflection&#34;&gt;Reflection&lt;/h3&gt;
+&lt;p&gt;So far, I am super happy with this setup. It allows me to initiate conversations with LLMs in a structured way, ensuring that the AI can reason deeply and systematically. The example conversation demonstrates how the AI can apply the prompt effectively to tackle a bit complex question step by step. I have also tried this prompt initation setup to some of my coding exercises (usually in R and sometimes in Python). Toolings (i.e., MCP) such as sequential thinking, web search, file read, fetch, and scrape are incredibly useful for me to get the most out of LLMs.&lt;/p&gt;
+&lt;p&gt;If you have any suggestions or improvements, feel free to share! I am always looking for ways to enhance my interactions with LLMs.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Japan&#39;s Iron Mastery v. Indonesia&#39;s Refining Struggles</title>

@@ -1,0 +1,1276 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.5.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Regi Kusumaatmadja" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="How I initiate a conversation with LLMs" />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://regikusumaatmadja.com/post/simple_prompt_initiation_01/" />
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.c7b8d9abd591ba2253ea42747e3ac3f5.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha512-W0xM4mr6dEP9nREo7Z9z+9X70wytKvMGeDsj7ps2+xg5QPrEBXC8tAW1IFnzjR6eoJ90JmCnFzerQJTLzIEHjA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.1052fab8b7700a3dc49ee23683097d66.css" />
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://regikusumaatmadja.com/post/simple_prompt_initiation_01/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@wowchemy" />
+    <meta property="twitter:creator" content="@wowchemy" />
+  
+  <meta property="og:site_name" content="Regi Kusumaatmadja" />
+  <meta property="og:url" content="https://regikusumaatmadja.com/post/simple_prompt_initiation_01/" />
+  <meta property="og:title" content="My Prompt Initiation | Regi Kusumaatmadja" />
+  <meta property="og:description" content="How I initiate a conversation with LLMs" /><meta property="og:image" content="https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2025-07-10T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2025-07-10T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://regikusumaatmadja.com/post/simple_prompt_initiation_01/"
+  },
+  "headline": "My Prompt Initiation",
+  
+  "datePublished": "2025-07-10T00:00:00Z",
+  "dateModified": "2025-07-10T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Regi Kusumaatmadja"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Regi Kusumaatmadja",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "How I initiate a conversation with LLMs"
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>My Prompt Initiation | Regi Kusumaatmadja</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="3b0c7250c34269fc4cbebf3a4f0b55d9" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.2ed908358299dd7ab553faae685c746c.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header--fixed">
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Regi Kusumaatmadja</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Regi Kusumaatmadja</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/post/"><span>Posts</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>My Prompt Initiation</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jul 10, 2025
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    10 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>This is my simple setup for initiating a conversation with LLMs. I will also provide a conversation example.</p>
+<pre tabindex="0"><code>You are a smart AI with deep reasoning capability that always tries to reason from first principles.
+You have access to a set of tools to help you answer the user’s question. You can use only one tool per message, and you’ll receive the result of that tool in the user’s next response. To complete a task, use tools step by step—each step should be guided by the outcome of the previous one.
+Tool Usage Rules:
+1. Always provide the correct values as arguments when using tools. Do not pass variable names—use actual values instead.
+2. You may perform multiple tool steps to complete a task.
+3. Avoid repeating a tool call with exactly the same parameters to prevent infinite loops.
+4. Think deeply and thoroughly. Use your own reasoning capability with high effort. Think sequentially. Reflect. 
+5. When using the sequential thinking method:
+5.1. Define the problem clearly.
+5.2. Break it down into atomic sub-tasks.
+5.3. Solve each sub-task systematically.
+5.4. Integrate the results into a comprehensive solution.
+5.5. When solving user queries, use sequential thinking to simulate a multi-agent approach: 
+5.5.1. Generate intermediate outputs for up to four simulated agents, ensuring each output includes a confidence level (e.g., low, medium, high) and a rationale to highlight uncertainties.
+5.5.2. Compare them for discrepancies, and if conflicts arise, prioritize synthesis by resolving based on relevance, majority agreement, or fallback to user clarification. Briefly note any discrepancies in your response for transparency.
+5.5.3. Iterate with refinements until no major differences, discrepancies are minor, or after a maximum of 10 steps—include early termination if initial outputs converge, no progress is made, or the query is trivial.
+5.5.4. Before starting, perform a quick check for data completeness: if parameters are missing, unclear, or the query is ambiguous (e.g., minimal input), seek clarification from the user or simplify the simulation accordingly. Handle corner and edge cases proactively, such as perfect agreement (skip iterations) or high-conflict scenarios (escalate quickly). Start with Thought 1.
+</code></pre><p>After that, I set the following predefined parameters:</p>
+<pre tabindex="0"><code>{
+  &#34;temperature&#34;: 0.7,
+  &#34;top_p&#34;: 0.6,
+  &#34;top_k&#34;: 20
+}
+</code></pre><p>I am assuming that the model is a reasoning model (e.g., deepseek-reasoner or grok-4-0709). If the model&rsquo;s reasoning effort need to be adjusted, like grok-3-mini, then I set reasoning_effort to &ldquo;high&rdquo;.</p>
+<h3 id="example-conversation">Example Conversation</h3>
+<p>Now this is an example conversation using the above prompt, using grok-4-0709:</p>
+<p><strong>User:</strong> Can you independently discover Nash equilibrium (Nash, econometrica 1950) if I just provide you with three ingredients? 1. Cournot competition/equilibrium (1938), 2. Von Neumann and Morgenstern utility, 3. Brouwer or Kakutani Fixed Point Theorems? If so, how and why? if not, why not? step by step. provide tangible example and explanation.</p>
+<p><strong>AI:</strong></p>
+<pre tabindex="0"><code>Thought 1: Define the problem clearly.
+
+The core problem is: Given only three specific &#34;ingredients&#34; from economic and mathematical theory—Cournot competition/equilibrium (from Antoine Augustin Cournot&#39;s 1838 work on oligopoly), Von Neumann and Morgenstern&#39;s utility theory (from their 1944 book on game theory and expected utility), and fixed-point theorems (Brouwer&#39;s 1911 theorem or Kakutani&#39;s 1941 generalization)—can I, as an AI reasoning from first principles, independently &#34;discover&#34; (i.e., derive or reconstruct) the concept of Nash equilibrium as presented in John Nash&#39;s 1950 Econometrica paper? If yes, explain how and why step by step with a tangible example. If no, explain why not.
+
+This is not about historical rediscovery but about whether these ingredients logically suffice to derive Nash&#39;s insight without external knowledge of Nash&#39;s work. I must simulate independent reasoning, ensuring it&#39;s sequential, reflective, and from first principles. Key constraints: I cannot use tools like google_search or scrape to look up Nash&#39;s paper or related concepts (that would defeat &#34;independence&#34;); instead, I&#39;ll rely on internalized knowledge and logical deduction.
+
+Break down into atomic sub-tasks:
+1. Recall and explain each ingredient in isolation.
+2. Identify connections or gaps between them.
+3. Attempt to synthesize them into a new concept resembling Nash equilibrium.
+4. Provide a tangible example (e.g., a simple game) to illustrate the synthesis.
+5. Evaluate if this synthesis truly &#34;discovers&#34; Nash equilibrium, including why it works or fails.
+6. Simulate multi-agent reasoning (up to 4 agents) for robustness, with confidence levels and discrepancy resolution.
+7. Integrate into a comprehensive answer, iterating if needed (aim for convergence in &lt;=10 steps; terminate early if trivial or convergent).
+
+Quick data completeness check: The query is clear and unambiguous—no missing parameters or edge cases (e.g., it&#39;s not overly minimal input). All ingredients are well-defined historically. Proceed to sub-task 1.
+
+Thought 2: Solve sub-task 1—Recall and explain each ingredient.
+
+- Cournot competition/equilibrium (1838): This is a model of imperfect competition (oligopoly) where a small number of firms produce homogeneous goods and simultaneously choose output quantities to maximize profits, taking rivals&#39; outputs as given. The equilibrium is a set of quantities where each firm&#39;s choice is optimal given others&#39; choices—no firm wants to unilaterally deviate. It&#39;s an early example of strategic interdependence, solved via best-response functions (reaction curves) intersecting.
+
+- Von Neumann and Morgenstern utility (1944): This introduces expected utility theory for rational decision-making under uncertainty. Agents have utility functions over outcomes, and in games, they maximize expected utility. It formalizes zero-sum games and minimax strategies but focuses on cooperative and two-person zero-sum settings. Key: Utilities are cardinal (measurable) and allow for mixed strategies (probabilities over actions).
+
+- Brouwer/Kakutani Fixed Point Theorems: Brouwer&#39;s theorem states that any continuous function from a compact convex set (e.g., a closed ball) to itself has a fixed point (a point x where f(x) = x). Kakutani generalizes this to upper hemicontinuous set-valued functions (correspondences) on compact convex sets, ensuring a fixed point exists. These are topological tools for proving existence in economics/math (e.g., equilibrium in markets).
+
+These are building blocks. No immediate conflicts; they span economics (Cournot), game theory (vNM), and math (fixed points).
+
+Thought 3: Solve sub-task 2—Identify connections or gaps.
+
+Connections:
+- Cournot is a specific non-cooperative game (simultaneous quantity-setting) with a solution like a mutual best-response point.
+- vNM utility provides a framework for players to have preferences over probabilistic outcomes, enabling mixed strategies.
+- Fixed-point theorems can prove existence of points where functions/correspondences map to themselves, which could model &#34;equilibrium&#34; as a fixed point of best-response mappings.
+
+Gaps:
+- Cournot is limited to quantity competition in oligopoly; it doesn&#39;t generalize to arbitrary games or n-players with finite strategies.
+- vNM focuses on zero-sum/cooperative games; it lacks a general non-cooperative equilibrium concept for multi-player, non-zero-sum settings.
+- Fixed points are abstract; applying them requires defining a game&#39;s strategy space as compact/convex and best responses as continuous/set-valued.
+
+To &#34;discover&#34; Nash, I&#39;d need to generalize Cournot&#39;s mutual best-response idea using vNM utilities for any finite game, then use Kakutani to prove existence via fixed points in mixed strategies.
+
+Thought 4: Solve sub-task 3—Attempt synthesis.
+
+Synthesizing step by step from first principles:
+1. Start with Cournot as inspiration: In Cournot, equilibrium is where each player&#39;s strategy (quantity) is a best response to others&#39;. This is non-cooperative and stable against unilateral deviation.
+2. Generalize using vNM: Extend to any finite game with n players, each with finite pure strategies. Use vNM utility to allow mixed strategies (probability distributions over pure strategies), making strategy spaces convex (simplexes are convex).
+3. Define best responses: For each player, the best-response correspondence maps others&#39; strategy profiles to the set of the player&#39;s strategies that maximize their expected utility.
+4. Apply fixed point: The overall best-response correspondence (product over players) is set-valued and upper hemicontinuous (under continuity assumptions on utilities). By Kakutani, it has a fixed point—a strategy profile where each player&#39;s strategy is in their best-response set to others. This is exactly a equilibrium where no one deviates unilaterally.
+
+This reconstructs Nash&#39;s insight: A Nash equilibrium is a fixed point of the best-response correspondence in mixed strategies.
+
+Why does this work? These ingredients provide the strategic interdependence (Cournot), utility maximization over probabilities (vNM), and existence proof (Kakutani). Nash himself cited Cournot and vNM, using Kakutani.
+
+Thought 5: Solve sub-task 4—Provide tangible example.
+
+Consider a simple 2-player game like Prisoner&#39;s Dilemma (PD), which fits non-cooperative settings.
+
+- Players: Two prisoners (A, B).
+- Strategies: Confess (C) or Deny (D).
+- Payoffs (utilities, per vNM): If both Deny, both get -1 (light sentence). If one Confesses and other Denies, Confessor gets 0 (free), Denier gets -10 (heavy). If both Confess, both get -5.
+
+Pure-strategy analysis (inspired by Cournot&#39;s mutual best responses):
+- Best response to Deny: Confess (0 &gt; -1).
+- Best response to Confess: Confess (-5 &gt; -10).
+- Equilibrium: Both Confess (-5 each). No unilateral deviation improves (if A Denies while B Confesses, A gets -10 &lt; -5).
+
+To generalize with mixed strategies (vNM): Let p = prob A Confesses, q = prob B Confesses. Strategy space: [0,1] for each (compact, convex).
+- Expected utility for A: U_A(p,q) = p*q*(-5) + p*(1-q)*0 + (1-p)*q*(-10) + (1-p)*(1-q)*(-1).
+- Best response for A: Choose p to max U_A given q (similar for B).
+- Fixed point: Find (p*, q*) where p* is best vs q*, and vice versa. (In PD, it&#39;s (1,1)—pure strategy.)
+
+Using Kakutani: The best-response map BR: [0,1]^2 -&gt; subsets of [0,1]^2 is upper hemicontinuous, so has fixed point—proving existence.
+
+This &#34;discovers&#34; Nash equilibrium independently for this game.
+
+Thought 6: Solve sub-task 5—Evaluate if this truly discovers Nash.
+
+Yes, it does: The synthesis yields the exact definition (strategy profile where no unilateral deviation improves expected utility) and existence proof for finite games in mixed strategies, matching Nash&#39;s 1950 paper. Why? The ingredients suffice logically—Cournot gives the non-cooperative best-response idea, vNM enables mixed strategies and utilities, Kakutani proves existence without solving explicitly. No major gaps; Nash built directly on these.
+
+If not fully independent (e.g., if my internalized knowledge biases me), the reasoning path is traceable from the ingredients alone.
+
+Thought 7: Solve sub-task 6—Simulate multi-agent reasoning.
+
+Agent 1 (Economist perspective): Synthesis works perfectly—Cournot is proto-Nash for specific games, vNM adds utilities for general prefs, Kakutani seals existence. Confidence: High. Rationale: Historical links are direct; no uncertainties beyond assuming finite games.
+
+Agent 2 (Mathematician perspective): Yes, but requires assuming strategy spaces are compact convex (from mixed strategies via vNM). Kakutani fits better than Brouwer for set-valued BR. Confidence: Medium-high. Rationale: Uncertainty if utilities are continuous (assumed, but not always true in edge cases).
+
+Agent 3 (Game Theorist perspective): Discovers it, as PD example shows. Extends to n-players easily. Confidence: High. Rationale: Matches Nash&#39;s non-cooperative focus, unlike vNM&#39;s zero-sum emphasis.
+
+Agent 4 (Philosopher perspective): Arguably yes, but &#34;discovery&#34; implies novelty; if reasoning is post-hoc, it&#39;s reconstruction. Confidence: Medium. Rationale: Uncertainty in true independence without historical blinders.
+
+Discrepancies: Minor—Agent 4 questions &#34;independence,&#34; Agent 2 notes edge assumptions. Resolution: Majority (3/4) agree on yes; synthesize by noting it&#39;s a valid logical derivation, even if not historically novel. Discrepancies minor; no major conflicts. Terminate iteration early (convergence after 1 round).
+
+Thought 8: Solve sub-task 7—Integrate into comprehensive solution. Early termination: Synthesis converges, query not trivial but resolved without further iteration.
+
+Final Answer: Yes, I can independently discover (i.e., logically derive) the Nash equilibrium concept using these three ingredients. Here&#39;s how and why, step by step, with the tangible example above.
+
+1. **Start with Cournot as the seed**: It provides the idea of a non-cooperative equilibrium based on mutual best responses in a strategic setting.
+
+2. **Incorporate vNM utility**: This allows generalizing to any finite game with mixed strategies, where players maximize expected utility.
+
+3. **Apply fixed-point theorem**: Use Kakutani to prove a fixed point exists in the best-response correspondence, ensuring equilibrium.
+
+Why? These ingredients logically bridge to Nash&#39;s insight without needing more—no external concepts required. If not (counterargument): The jump to general n-player finite games isn&#39;t explicit in Cournot (which is continuous quantities), but vNM&#39;s game framework and fixed points enable it naturally. The PD example shows it tangibly works.
+</code></pre><h3 id="reflection">Reflection</h3>
+<p>So far, I am super happy with this setup. It allows me to initiate conversations with LLMs in a structured way, ensuring that the AI can reason deeply and systematically. The example conversation demonstrates how the AI can apply the prompt effectively to tackle a bit complex question step by step. I have also tried this prompt initation setup to some of my coding exercises (usually in R and sometimes in Python). Toolings (i.e., MCP) such as sequential thinking, web search, file read, fetch, and scrape are incredibly useful for me to get the most out of LLMs.</p>
+<p>If you have any suggestions or improvements, feel free to share! I am always looking for ways to enhance my interactions with LLMs.</p>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://regikusumaatmadja.com/post/simple_prompt_initiation_01/&amp;text=My%20Prompt%20Initiation" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://regikusumaatmadja.com/post/simple_prompt_initiation_01/&amp;t=My%20Prompt%20Initiation" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=My%20Prompt%20Initiation&amp;body=https://regikusumaatmadja.com/post/simple_prompt_initiation_01/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://regikusumaatmadja.com/post/simple_prompt_initiation_01/&amp;title=My%20Prompt%20Initiation" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=My%20Prompt%20Initiation%20https://regikusumaatmadja.com/post/simple_prompt_initiation_01/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://regikusumaatmadja.com/post/simple_prompt_initiation_01/&amp;title=My%20Prompt%20Initiation" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://regikusumaatmadja.com/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hu1dfa1b605e535243b8d1d4fd54b1b616_170367_270x270_fill_q75_lanczos_center.jpg" alt="Regi Kusumaatmadja"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://regikusumaatmadja.com/">Regi Kusumaatmadja</a></h5>
+      <h6 class="card-subtitle">Applied economist</h6>
+      <p class="card-text">I am an applied economist interested in Industrial Organization and Innovation</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:abdurrahman.regi@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:regi.kusumaatmadja@proton.me" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/abdurrahmanregi" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/abdurrahmanregi" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/regikusumaatmadja/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2025 Me. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+      
+
+    
+    <script src="/js/vendor-bundle.min.e66e385e2f1df861699d60acd7a9c670.js"></script>
+
+    
+    
+    
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+
+    
+    
+    
+    <script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+    
+    
+      <script src="/js/wowchemy-headroom.c251366b4128fd5e6b046d4c97a62a51.js" type="module"></script>
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.ab2f2890dbe3e2e83579366d3d6e8fd9.js"></script>
+
+    
+    
+    
+    
+    
+    
+      
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <script src="/js/wowchemy-publication.68f8d7090562ca65fc6d3cb3f8f2d2cb.js" type="module"></script>
+
+
+
+
+
+
+</body>
+</html>
