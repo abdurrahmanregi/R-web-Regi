@@ -657,7 +657,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    10 min read
+    12 min read
   </span>
   
 
@@ -705,14 +705,14 @@ Tool Usage Rules:
 5.5.4. Before starting, perform a quick check for data completeness: if parameters are missing, unclear, or the query is ambiguous (e.g., minimal input), seek clarification from the user or simplify the simulation accordingly. Handle corner and edge cases proactively, such as perfect agreement (skip iterations) or high-conflict scenarios (escalate quickly). Start with Thought 1.
 </code></pre><p>After that, I set the following predefined parameters:</p>
 <pre tabindex="0"><code>{
-  &#34;temperature&#34;: 0.7,
-  &#34;top_p&#34;: 0.6,
+  &#34;temperature&#34;: 0.6,
+  &#34;top_p&#34;: 0.95,
   &#34;top_k&#34;: 20
 }
-</code></pre><p>I am assuming that the model is a reasoning model (e.g., deepseek-reasoner or grok-4-0709). If the model&rsquo;s reasoning effort need to be adjusted, like grok-3-mini, then I set reasoning_effort to &ldquo;high&rdquo;.</p>
+</code></pre><p>I am assuming that the model is a reasoning model (e.g., DeepSeek R1 0528 or Grok 4). If the model&rsquo;s reasoning effort need to be adjusted, like Grok 3 mini, then I set <code>reasoning_effort</code> to &ldquo;high&rdquo;. For other models, such as Qwen 3 32B or Qwen 3 30B A3B, we also need to enable the thinking mode, i.e., <code>enable_thinking</code> parameter to &ldquo;True&rdquo;.</p>
 <h3 id="example-conversation">Example Conversation</h3>
-<p>Now this is an example conversation using the above prompt, using grok-4-0709:</p>
-<p><strong>User:</strong> Can you independently discover Nash equilibrium (Nash, econometrica 1950) if I just provide you with three ingredients? 1. Cournot competition/equilibrium (1938), 2. Von Neumann and Morgenstern utility, 3. Brouwer or Kakutani Fixed Point Theorems? If so, how and why? if not, why not? step by step. provide tangible example and explanation.</p>
+<p>Now this is an example conversation using the above prompt, using Grok 4 (in the API, it is <code>grok-4-0709</code>:</p>
+<p><strong>User:</strong> Can you independently discover Nash equilibrium (Nash, econometrica 1950) if I just provide you with three ingredients? 1. Cournot competition/equilibrium (1838), 2. Von Neumann and Morgenstern utility, 3. Brouwer or Kakutani Fixed Point Theorems? If so, how and why? if not, why not? step by step. provide tangible example and explanation.</p>
 <p><strong>AI:</strong></p>
 <pre tabindex="0"><code>Thought 1: Define the problem clearly.
 
@@ -818,8 +818,12 @@ Final Answer: Yes, I can independently discover (i.e., logically derive) the Nas
 3. **Apply fixed-point theorem**: Use Kakutani to prove a fixed point exists in the best-response correspondence, ensuring equilibrium.
 
 Why? These ingredients logically bridge to Nash&#39;s insight without needing more—no external concepts required. If not (counterargument): The jump to general n-player finite games isn&#39;t explicit in Cournot (which is continuous quantities), but vNM&#39;s game framework and fixed points enable it naturally. The PD example shows it tangibly works.
-</code></pre><h3 id="reflection">Reflection</h3>
+</code></pre><p>Above example is a naive attempt to derive Nash equilibrium using only three ingredients as a knowledge bundle. One can think of this as a naive, ex-post exercise of whether an AI can creatively think about some abstract concepts with just a bundle of prior knowledge. This is by no means an extensive evaluation of whether AI can produce an entirely new knowledge or invention.</p>
+<h3 id="reflection">Reflection</h3>
 <p>So far, I am super happy with this setup. It allows me to initiate conversations with LLMs in a structured way, ensuring that the AI can reason deeply and systematically. The example conversation demonstrates how the AI can apply the prompt effectively to tackle a bit complex question step by step. I have also tried this prompt initation setup to some of my coding exercises (usually in R and sometimes in Python). Toolings (i.e., MCP) such as sequential thinking, web search, file read, fetch, and scrape are incredibly useful for me to get the most out of LLMs.</p>
+<p>From closed source model, nowadays I mainly use Grok (Grok 4 or Grok 3 mini high) or Gemini (2.5 Pro or flash). For open-source model, via API, I use DeepSeek R1 0528. These models are super cheap in terms of cost (dollar per million tokens), except -of course- Grok 4 and Gemini 2.5 Pro (granted, they are far cheaper than OpenAI o3 or any alternatives from Anthropic). Sometimes, I do not feel satisfied with Grok&rsquo;s answers, then I can ask DeepSeek to re-evaluate Grok&rsquo;s answers. Sometimes, Gemini. Then, I just need to iterate between these models.</p>
+<p>For local models, I use Qwen 3 32B, Phi 4 Reasoning Plus 14B, or DeepSeek R1 0528 Distilled Qwen 3 8B. Sometimes, I still go back to Qwen 2.5 coder for coding exercises.</p>
+<p>My real problem with LLMs so far is the limit in context length, especially for local models! This problem impacts many things such as the ability of a model to digest an entire paper or reading the whole code source, for example. That is from the input side. From the output side, you also have this type of length limit! Some smart people must have been working on this topic to optimize these things. I hope we can get much improvement in the near future.</p>
 <p>If you have any suggestions or improvements, feel free to share! I am always looking for ways to enhance my interactions with LLMs.</p>
 
     </div>

@@ -34,12 +34,12 @@ After that, I set the following predefined parameters:
   "top_k": 20
 }
 ```
-I am assuming that the model is a reasoning model (e.g., DeepSeek R1 0528 or Grok 4). If the model's reasoning effort need to be adjusted, like Grok 3 mini, then I set reasoning_effort to "high".
+I am assuming that the model is a reasoning model (e.g., DeepSeek R1 0528 or Grok 4). If the model's reasoning effort need to be adjusted, like Grok 3 mini, then I set `reasoning_effort` to "high". For other models, such as Qwen 3 32B or Qwen 3 30B A3B, we also need to enable the thinking mode, i.e., `enable_thinking` parameter to "True".
 
 ### Example Conversation
 Now this is an example conversation using the above prompt, using Grok 4 (in the API, it is `grok-4-0709`:
 
-**User:** Can you independently discover Nash equilibrium (Nash, econometrica 1950) if I just provide you with three ingredients? 1. Cournot competition/equilibrium (1938), 2. Von Neumann and Morgenstern utility, 3. Brouwer or Kakutani Fixed Point Theorems? If so, how and why? if not, why not? step by step. provide tangible example and explanation.
+**User:** Can you independently discover Nash equilibrium (Nash, econometrica 1950) if I just provide you with three ingredients? 1. Cournot competition/equilibrium (1838), 2. Von Neumann and Morgenstern utility, 3. Brouwer or Kakutani Fixed Point Theorems? If so, how and why? if not, why not? step by step. provide tangible example and explanation.
 
 **AI:**
 ```
@@ -153,5 +153,11 @@ Above example is a naive attempt to derive Nash equilibrium using only three ing
 
 ### Reflection
 So far, I am super happy with this setup. It allows me to initiate conversations with LLMs in a structured way, ensuring that the AI can reason deeply and systematically. The example conversation demonstrates how the AI can apply the prompt effectively to tackle a bit complex question step by step. I have also tried this prompt initation setup to some of my coding exercises (usually in R and sometimes in Python). Toolings (i.e., MCP) such as sequential thinking, web search, file read, fetch, and scrape are incredibly useful for me to get the most out of LLMs. 
+
+From closed source model, nowadays I mainly use Grok (Grok 4 or Grok 3 mini high) or Gemini (2.5 Pro or flash). For open-source model, via API, I use DeepSeek R1 0528. These models are super cheap in terms of cost (dollar per million tokens), except -of course- Grok 4 and Gemini 2.5 Pro (granted, they are far cheaper than OpenAI o3 or any alternatives from Anthropic). Sometimes, I do not feel satisfied with Grok's answers, then I can ask DeepSeek to re-evaluate Grok's answers. Sometimes, Gemini. Then, I just need to iterate between these models.
+
+For local models, I use Qwen 3 32B, Phi 4 Reasoning Plus 14B, or DeepSeek R1 0528 Distilled Qwen 3 8B. Sometimes, I still go back to Qwen 2.5 coder for coding exercises.
+
+My real problem with LLMs so far is the limit in context length, especially for local models! This problem impacts many things such as the ability of a model to digest an entire paper or reading the whole code source, for example. That is from the input side. From the output side, you also have this type of length limit! Some smart people must have been working on this topic to optimize these things. I hope we can get much improvement in the near future. 
 
 If you have any suggestions or improvements, feel free to share! I am always looking for ways to enhance my interactions with LLMs.
