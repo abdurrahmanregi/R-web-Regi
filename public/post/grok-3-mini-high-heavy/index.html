@@ -1,0 +1,1174 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.5.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Regi Kusumaatmadja" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Simulating Grok 3 mini with 4 agents for a &#39;Heavy&#39; mode experience. Exploring interesting use cases." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://regikusumaatmadja.com/post/grok-3-mini-high-heavy/" />
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.c7b8d9abd591ba2253ea42747e3ac3f5.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha512-W0xM4mr6dEP9nREo7Z9z+9X70wytKvMGeDsj7ps2+xg5QPrEBXC8tAW1IFnzjR6eoJ90JmCnFzerQJTLzIEHjA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.1052fab8b7700a3dc49ee23683097d66.css" />
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://regikusumaatmadja.com/post/grok-3-mini-high-heavy/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@wowchemy" />
+    <meta property="twitter:creator" content="@wowchemy" />
+  
+  <meta property="og:site_name" content="Regi Kusumaatmadja" />
+  <meta property="og:url" content="https://regikusumaatmadja.com/post/grok-3-mini-high-heavy/" />
+  <meta property="og:title" content="Trying Grok Heavy Simulation | Regi Kusumaatmadja" />
+  <meta property="og:description" content="Simulating Grok 3 mini with 4 agents for a &#39;Heavy&#39; mode experience. Exploring interesting use cases." /><meta property="og:image" content="https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2025-07-20T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2025-07-20T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://regikusumaatmadja.com/post/grok-3-mini-high-heavy/"
+  },
+  "headline": "Trying Grok Heavy Simulation",
+  
+  "datePublished": "2025-07-20T00:00:00Z",
+  "dateModified": "2025-07-20T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Regi Kusumaatmadja"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Regi Kusumaatmadja",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "Simulating Grok 3 mini with 4 agents for a 'Heavy' mode experience. Exploring interesting use cases."
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>Trying Grok Heavy Simulation | Regi Kusumaatmadja</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="f690157ec2e1a35b06a0b40f9b2d6a4d" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.2ed908358299dd7ab553faae685c746c.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header--fixed">
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Regi Kusumaatmadja</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Regi Kusumaatmadja</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/post/"><span>Posts</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Trying Grok Heavy Simulation</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jul 20, 2025
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>I have been experimenting with Grok 3 mini to simulate a multi-agent system similar to xAI&rsquo;s Grok 4 Heavy or OpenAI&rsquo;s o3-pro.</p>
+<p>My implementation is based on <a href="https://github.com/Doriandarko/make-it-heavy" target="_blank" rel="noopener">this project</a>. The main differences are that I&rsquo;ve added the ability to set model parameters such as <code>reasoning_effort</code>, <code>temperature</code>, <code>top_p</code>, and <code>top_k</code>. Additionally, I use the Tavily API for search instead of DuckDuckGo, and I&rsquo;ve enabled users to send multi-line messages, similar to Ollama. The rest remains the same.</p>
+<p>I chose Grok 3 mini because it&rsquo;s cheap and fast while still retaining strong reasoning capabilities.</p>
+<h3 id="example-conversation">Example Conversation</h3>
+<p>Here is a sample conversation:</p>
+<p><em><strong>User</strong></em>: 
+can we think of Nash equilibrium as a fixed point? why or why not?</p>
+<p><em><strong>Grok 3 mini Heavy</strong></em>:</p>
+<p>GROK-3-MINI HEAVY</p>
+<p>● RUNNING • 23M18S</p>
+<p>AGENT 01  ● ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</p>
+<p>AGENT 02  ● ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</p>
+<p>AGENT 03  ● ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</p>
+<p>AGENT 04  ● ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</p>
+<p>================================================================================</p>
+<p>FINAL RESULTS</p>
+<p>================================================================================</p>
+<p>Yes, Nash equilibrium can be thought of as a fixed point in game theory. Here&rsquo;s a comprehensive explanation of this concept, including its definition, mathematical foundations, practical insights, and limitations.</p>
+<h4 id="what-is-nash-equilibrium-and-how-does-it-relate-to-fixed-points">What is Nash Equilibrium and How Does It Relate to Fixed Points?</h4>
+<p>Nash equilibrium is a fundamental concept in game theory, representing a strategy profile where no player can improve their payoff by unilaterally changing their strategy, assuming all other players&rsquo; strategies remain unchanged. This stability can be mathematically interpreted as a fixed point, where a fixed point is a value that remains unchanged under a specific function or mapping. In this case, the relevant mapping is the best-response function, which assigns to each strategy profile the strategies that maximize each player&rsquo;s payoff given the others&rsquo; strategies. A Nash equilibrium occurs when this mapping results in the same strategy profile, meaning no player has an incentive to deviate.</p>
+<h4 id="mathematical-foundations">Mathematical Foundations</h4>
+<p>The connection between Nash equilibrium and fixed points is rigorously established through fixed-point theorems. For instance, John Nash&rsquo;s original proof used Brouwer&rsquo;s fixed-point theorem to show that equilibria exist in finite games with continuous strategy spaces, while Kakutani&rsquo;s fixed-point theorem extends this to more general cases, such as games involving mixed strategies or set-valued mappings. This framework ensures that under conditions like compact and convex strategy spaces, a Nash equilibrium exists as a fixed point, providing a stable &ldquo;resting point&rdquo; in strategic interactions.</p>
+<h4 id="why-this-perspective-is-useful">Why This Perspective is Useful</h4>
+<p>Viewing Nash equilibrium as a fixed point offers powerful analytical tools. It facilitates proofs of equilibrium existence in various game types, including symmetric and asymmetric games, and connects game theory to fields like optimization and dynamical systems. For example, in evolutionary game theory, fixed points can model long-term behavioral stability, while in pure-strategy games, they simplify interpretation. This analogy highlights strategic stability, where the equilibrium acts like a point of no change, much like in other mathematical contexts.</p>
+<h4 id="nuances-and-limitations">Nuances and Limitations</h4>
+<p>While the fixed-point interpretation is standard, it has limitations in certain scenarios. In games with discontinuous payoffs or non-convex strategy spaces, fixed-point theorems may not apply, potentially leading to non-existence of equilibria or requiring alternative approaches. Computational challenges arise, as finding Nash equilibria can be NP-hard, especially in large or infinite-strategy games, where methods like iterative best-response may not converge efficiently. Additionally, in mixed-strategy equilibria, the mapping involves probability distributions, adding complexity.</p>
+<p>Alternative perspectives, such as those in quantum game theory, suggest that Nash equilibria may not always align with fixed points due to non-classical correlations, leading to concepts like quantum Nash equilibria. Behavioral critiques also note that assumptions of perfect rationality may not hold in real-world settings, prompting alternatives like quantal response equilibria or evolutionary stable strategies, which better capture dynamics like learning or bounded rationality. Not all fixed points are Nash equilibria, as some may lack the strategic stability required.</p>
+<p>In summary, Nash equilibrium is fundamentally linked to fixed points through mathematical game theory, offering a robust framework for analysis while acknowledging contexts where refinements or different approaches may be necessary. This perspective underscores its role as a cornerstone of strategic stability, supported by established theory and practical considerations.</p>
+<p>================================================================================</p>
+<h3 id="note">Note</h3>
+<p>Surprisingly, it ran for 23 minutes and 18 seconds, which is quite long for Grok 3 mini. The reason is that it has to wait for the other agents to finish their reasoning before producing the final result, and there&rsquo;s a final agent that synthesizes everything. Along the way, there were about 19 instances of searches (via the Tavily API).</p>
+<p>Note, this exercise is by no means an extensive evaluation of the correctness of the agents&rsquo; answers. You can judge the answers by yourself.</p>
+<p>This type of tool is useful for complex reasoning tasks that require multiple perspectives or when the problem is too intricate for a single agent to handle effectively.</p>
+<p>I am planning to incorporate this &ldquo;Grok Heavy&rdquo; with Mixture of Agents (MoA) as a side project later (see the explanation from Together AI <a href="https://docs.together.ai/docs/mixture-of-agents" target="_blank" rel="noopener">here</a>). My original idea is to combine &lsquo;cheap and fast&rsquo; reasoning models, such as Grok 3 Mini, Gemini 2.5 Flash (reasoning), and DeepSeek R1 0528, with this &ldquo;make-it-heavy&rdquo; orchestration within each LLM.</p>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://regikusumaatmadja.com/post/grok-3-mini-high-heavy/&amp;text=Trying%20Grok%20Heavy%20Simulation" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://regikusumaatmadja.com/post/grok-3-mini-high-heavy/&amp;t=Trying%20Grok%20Heavy%20Simulation" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Trying%20Grok%20Heavy%20Simulation&amp;body=https://regikusumaatmadja.com/post/grok-3-mini-high-heavy/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://regikusumaatmadja.com/post/grok-3-mini-high-heavy/&amp;title=Trying%20Grok%20Heavy%20Simulation" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Trying%20Grok%20Heavy%20Simulation%20https://regikusumaatmadja.com/post/grok-3-mini-high-heavy/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://regikusumaatmadja.com/post/grok-3-mini-high-heavy/&amp;title=Trying%20Grok%20Heavy%20Simulation" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://regikusumaatmadja.com/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hu1dfa1b605e535243b8d1d4fd54b1b616_170367_270x270_fill_q75_lanczos_center.jpg" alt="Regi Kusumaatmadja"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://regikusumaatmadja.com/">Regi Kusumaatmadja</a></h5>
+      <h6 class="card-subtitle">Applied economist</h6>
+      <p class="card-text">I am an applied economist interested in Industrial Organization and Innovation</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:abdurrahman.regi@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:regi.kusumaatmadja@proton.me" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/abdurrahmanregi" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/abdurrahmanregi" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/regikusumaatmadja/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2025 Me. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+      
+
+    
+    <script src="/js/vendor-bundle.min.e66e385e2f1df861699d60acd7a9c670.js"></script>
+
+    
+    
+    
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+
+    
+    
+    
+    <script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+    
+    
+      <script src="/js/wowchemy-headroom.c251366b4128fd5e6b046d4c97a62a51.js" type="module"></script>
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.ab2f2890dbe3e2e83579366d3d6e8fd9.js"></script>
+
+    
+    
+    
+    
+    
+    
+      
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <script src="/js/wowchemy-publication.68f8d7090562ca65fc6d3cb3f8f2d2cb.js" type="module"></script>
+
+
+
+
+
+
+</body>
+</html>

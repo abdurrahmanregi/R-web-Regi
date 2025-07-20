@@ -5,12 +5,54 @@
     <link>https://regikusumaatmadja.com/post/</link>
       <atom:link href="https://regikusumaatmadja.com/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 10 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 20 Jul 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
       <link>https://regikusumaatmadja.com/post/</link>
     </image>
+    
+    <item>
+      <title>Trying Grok Heavy Simulation</title>
+      <link>https://regikusumaatmadja.com/post/grok-3-mini-high-heavy/</link>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://regikusumaatmadja.com/post/grok-3-mini-high-heavy/</guid>
+      <description>&lt;p&gt;I have been experimenting with Grok 3 mini to simulate a multi-agent system similar to xAI&amp;rsquo;s Grok 4 Heavy or OpenAI&amp;rsquo;s o3-pro.&lt;/p&gt;
+&lt;p&gt;My implementation is based on &lt;a href=&#34;https://github.com/Doriandarko/make-it-heavy&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this project&lt;/a&gt;. The main differences are that I&amp;rsquo;ve added the ability to set model parameters such as &lt;code&gt;reasoning_effort&lt;/code&gt;, &lt;code&gt;temperature&lt;/code&gt;, &lt;code&gt;top_p&lt;/code&gt;, and &lt;code&gt;top_k&lt;/code&gt;. Additionally, I use the Tavily API for search instead of DuckDuckGo, and I&amp;rsquo;ve enabled users to send multi-line messages, similar to Ollama. The rest remains the same.&lt;/p&gt;
+&lt;p&gt;I chose Grok 3 mini because it&amp;rsquo;s cheap and fast while still retaining strong reasoning capabilities.&lt;/p&gt;
+&lt;h3 id=&#34;example-conversation&#34;&gt;Example Conversation&lt;/h3&gt;
+&lt;p&gt;Here is a sample conversation:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;User&lt;/strong&gt;&lt;/em&gt;: 
+can we think of Nash equilibrium as a fixed point? why or why not?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Grok 3 mini Heavy&lt;/strong&gt;&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;GROK-3-MINI HEAVY&lt;/p&gt;
+&lt;p&gt;● RUNNING • 23M18S&lt;/p&gt;
+&lt;p&gt;AGENT 01  ● ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::&lt;/p&gt;
+&lt;p&gt;AGENT 02  ● ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::&lt;/p&gt;
+&lt;p&gt;AGENT 03  ● ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::&lt;/p&gt;
+&lt;p&gt;AGENT 04  ● ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::&lt;/p&gt;
+&lt;p&gt;================================================================================&lt;/p&gt;
+&lt;p&gt;FINAL RESULTS&lt;/p&gt;
+&lt;p&gt;================================================================================&lt;/p&gt;
+&lt;p&gt;Yes, Nash equilibrium can be thought of as a fixed point in game theory. Here&amp;rsquo;s a comprehensive explanation of this concept, including its definition, mathematical foundations, practical insights, and limitations.&lt;/p&gt;
+&lt;h4 id=&#34;what-is-nash-equilibrium-and-how-does-it-relate-to-fixed-points&#34;&gt;What is Nash Equilibrium and How Does It Relate to Fixed Points?&lt;/h4&gt;
+&lt;p&gt;Nash equilibrium is a fundamental concept in game theory, representing a strategy profile where no player can improve their payoff by unilaterally changing their strategy, assuming all other players&amp;rsquo; strategies remain unchanged. This stability can be mathematically interpreted as a fixed point, where a fixed point is a value that remains unchanged under a specific function or mapping. In this case, the relevant mapping is the best-response function, which assigns to each strategy profile the strategies that maximize each player&amp;rsquo;s payoff given the others&amp;rsquo; strategies. A Nash equilibrium occurs when this mapping results in the same strategy profile, meaning no player has an incentive to deviate.&lt;/p&gt;
+&lt;h4 id=&#34;mathematical-foundations&#34;&gt;Mathematical Foundations&lt;/h4&gt;
+&lt;p&gt;The connection between Nash equilibrium and fixed points is rigorously established through fixed-point theorems. For instance, John Nash&amp;rsquo;s original proof used Brouwer&amp;rsquo;s fixed-point theorem to show that equilibria exist in finite games with continuous strategy spaces, while Kakutani&amp;rsquo;s fixed-point theorem extends this to more general cases, such as games involving mixed strategies or set-valued mappings. This framework ensures that under conditions like compact and convex strategy spaces, a Nash equilibrium exists as a fixed point, providing a stable &amp;ldquo;resting point&amp;rdquo; in strategic interactions.&lt;/p&gt;
+&lt;h4 id=&#34;why-this-perspective-is-useful&#34;&gt;Why This Perspective is Useful&lt;/h4&gt;
+&lt;p&gt;Viewing Nash equilibrium as a fixed point offers powerful analytical tools. It facilitates proofs of equilibrium existence in various game types, including symmetric and asymmetric games, and connects game theory to fields like optimization and dynamical systems. For example, in evolutionary game theory, fixed points can model long-term behavioral stability, while in pure-strategy games, they simplify interpretation. This analogy highlights strategic stability, where the equilibrium acts like a point of no change, much like in other mathematical contexts.&lt;/p&gt;
+&lt;h4 id=&#34;nuances-and-limitations&#34;&gt;Nuances and Limitations&lt;/h4&gt;
+&lt;p&gt;While the fixed-point interpretation is standard, it has limitations in certain scenarios. In games with discontinuous payoffs or non-convex strategy spaces, fixed-point theorems may not apply, potentially leading to non-existence of equilibria or requiring alternative approaches. Computational challenges arise, as finding Nash equilibria can be NP-hard, especially in large or infinite-strategy games, where methods like iterative best-response may not converge efficiently. Additionally, in mixed-strategy equilibria, the mapping involves probability distributions, adding complexity.&lt;/p&gt;
+&lt;p&gt;Alternative perspectives, such as those in quantum game theory, suggest that Nash equilibria may not always align with fixed points due to non-classical correlations, leading to concepts like quantum Nash equilibria. Behavioral critiques also note that assumptions of perfect rationality may not hold in real-world settings, prompting alternatives like quantal response equilibria or evolutionary stable strategies, which better capture dynamics like learning or bounded rationality. Not all fixed points are Nash equilibria, as some may lack the strategic stability required.&lt;/p&gt;
+&lt;p&gt;In summary, Nash equilibrium is fundamentally linked to fixed points through mathematical game theory, offering a robust framework for analysis while acknowledging contexts where refinements or different approaches may be necessary. This perspective underscores its role as a cornerstone of strategic stability, supported by established theory and practical considerations.&lt;/p&gt;
+&lt;p&gt;================================================================================&lt;/p&gt;
+&lt;h3 id=&#34;note&#34;&gt;Note&lt;/h3&gt;
+&lt;p&gt;Surprisingly, it ran for 23 minutes and 18 seconds, which is quite long for Grok 3 mini. The reason is that it has to wait for the other agents to finish their reasoning before producing the final result, and there&amp;rsquo;s a final agent that synthesizes everything. Along the way, there were about 19 instances of searches (via the Tavily API).&lt;/p&gt;
+&lt;p&gt;Note, this exercise is by no means an extensive evaluation of the correctness of the agents&amp;rsquo; answers. You can judge the answers by yourself.&lt;/p&gt;
+&lt;p&gt;This type of tool is useful for complex reasoning tasks that require multiple perspectives or when the problem is too intricate for a single agent to handle effectively.&lt;/p&gt;
+&lt;p&gt;I am planning to incorporate this &amp;ldquo;Grok Heavy&amp;rdquo; with Mixture of Agents (MoA) as a side project later (see the explanation from Together AI &lt;a href=&#34;https://docs.together.ai/docs/mixture-of-agents&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;). My original idea is to combine &amp;lsquo;cheap and fast&amp;rsquo; reasoning models, such as Grok 3 Mini, Gemini 2.5 Flash (reasoning), and DeepSeek R1 0528, with this &amp;ldquo;make-it-heavy&amp;rdquo; orchestration within each LLM.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>My Prompt Initiation</title>
@@ -44,8 +86,15 @@ Tool Usage Rules:
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I am assuming that the model is a reasoning model (e.g., DeepSeek R1 0528 or Grok 4). If the model&amp;rsquo;s reasoning effort need to be adjusted, like Grok 3 mini, then I set &lt;code&gt;reasoning_effort&lt;/code&gt; to &amp;ldquo;high&amp;rdquo;. For other models, such as Qwen 3 32B or Qwen 3 30B A3B, we also need to enable the thinking mode, i.e., &lt;code&gt;enable_thinking&lt;/code&gt; parameter to &amp;ldquo;True&amp;rdquo;.&lt;/p&gt;
 &lt;h3 id=&#34;example-conversation&#34;&gt;Example Conversation&lt;/h3&gt;
 &lt;p&gt;Now this is an example conversation using the above prompt, using Grok 4 (in the API, it is &lt;code&gt;grok-4-0709&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;User:&lt;/strong&gt; Can you independently discover Nash equilibrium (Nash, econometrica 1950) if I just provide you with three ingredients? 1. Cournot competition/equilibrium (1838), 2. Von Neumann and Morgenstern utility, 3. Brouwer or Kakutani Fixed Point Theorems? If so, how and why? if not, why not? step by step. provide tangible example and explanation.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;AI:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;User:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Can you independently discover Nash equilibrium (Nash, econometrica 1950) if I just provide you with three ingredients?
+
+- Cournot competition/equilibrium (1938)
+- Von Neumann and Morgenstern utility
+- Brouwer or Kakutani Fixed Point Theorems?
+
+If so, how and why? if not, why not? step by step. provide tangible example and explanation.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;AI:&lt;/strong&gt;&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Thought 1: To address the query—&amp;#34;Can you independently discover Nash equilibrium (Nash, Econometrica 1950) if I just provide you with three ingredients: Cournot competition/equilibrium (1938), Von Neumann and Morgenstern utility, and Brouwer or Kakutani Fixed Point Theorems? If so, how and why? If not, why not? Step by step, with tangible example and explanation&amp;#34;—I will simulate a multi-agent approach by spawning three simulated agents to explore distinct hypotheses in parallel. This mimics parallel test-time compute, allowing me to branch out and evaluate different paths before synthesizing. Each agent will generate intermediate outputs with a confidence level (low, medium, high) and rationale, highlighting uncertainties. I&amp;#39;ll treat these as branching paths and compare for discrepancies.
 
 - **Agent 1 Hypothesis (Direct Generalization Path)**: Yes, I can independently discover Nash equilibrium by generalizing Cournot&amp;#39;s duopoly model to n-players using von Neumann-Morgenstern (vNM) utilities for strategic choices and applying Kakutani&amp;#39;s fixed-point theorem to prove existence of equilibrium in mixed strategies. This builds directly on the ingredients, as Cournot shows mutual best responses in quantity competition, vNM utilities allow modeling preferences over probabilistic outcomes, and fixed-point theorems ensure a stable point where no player deviates. Confidence: High. Rationale: Historical evidence shows Nash did exactly this; the ingredients are sufficient for a motivated reasoner to spot the generalization from 2-player quantity games to general non-cooperative games with randomization. Uncertainty: Assumes I can intuitively extend &amp;#34;best response&amp;#34; from quantities to arbitrary strategies without additional hints.
