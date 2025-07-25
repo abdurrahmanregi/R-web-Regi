@@ -1,0 +1,1322 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.5.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Regi Kusumaatmadja" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="How to utilize LLM and embedded tools to search for papers and perform simple literature review." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://regikusumaatmadja.com/post/simple_search_01/" />
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.c7b8d9abd591ba2253ea42747e3ac3f5.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha512-W0xM4mr6dEP9nREo7Z9z+9X70wytKvMGeDsj7ps2+xg5QPrEBXC8tAW1IFnzjR6eoJ90JmCnFzerQJTLzIEHjA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.1052fab8b7700a3dc49ee23683097d66.css" />
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://regikusumaatmadja.com/post/simple_search_01/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@wowchemy" />
+    <meta property="twitter:creator" content="@wowchemy" />
+  
+  <meta property="og:site_name" content="Regi Kusumaatmadja" />
+  <meta property="og:url" content="https://regikusumaatmadja.com/post/simple_search_01/" />
+  <meta property="og:title" content="Simple Way to Search with LLM and Tools | Regi Kusumaatmadja" />
+  <meta property="og:description" content="How to utilize LLM and embedded tools to search for papers and perform simple literature review." /><meta property="og:image" content="https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2025-07-25T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2025-07-25T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://regikusumaatmadja.com/post/simple_search_01/"
+  },
+  "headline": "Simple Way to Search with LLM and Tools",
+  
+  "datePublished": "2025-07-25T00:00:00Z",
+  "dateModified": "2025-07-25T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Regi Kusumaatmadja"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Regi Kusumaatmadja",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "How to utilize LLM and embedded tools to search for papers and perform simple literature review."
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>Simple Way to Search with LLM and Tools | Regi Kusumaatmadja</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="a9dfc6ef3ba94eb5861bc20654266339" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.2ed908358299dd7ab553faae685c746c.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header--fixed">
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Regi Kusumaatmadja</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Regi Kusumaatmadja</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/post/"><span>Posts</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Simple Way to Search with LLM and Tools</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jul 25, 2025
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    11 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>I use a combination of Grok 4, Tavily search, and arXiv APIs to perform a search for papers on a specific topic. Grok 4 and Tavily APIs are pay-as-you-go, you can top up certain amount of money, tho. arXiv API is free, but limited. So, always check the respective documentation. For a chat-type interface, I use the app from Jan.</p>
+<p>Tavily search has several available tools (MCP wise): <code>tavily-search</code>, <code>tavily-extract</code>, <code>tavily-crawl</code>, and <code>tavily-map</code>. arXiv has several tools; <code>search_papers</code>, <code>download_paper</code>, <code>list_papers</code>, and <code>read_paper</code>.</p>
+<h3 id="prelude">Prelude</h3>
+<p>First, let us setup the environment for Grok. The prompt initiation I use is the following</p>
+<pre tabindex="0"><code>You are a smart AI with deep reasoning capability that always tries to reason from first principles.
+You have access to a set of tools to help you answer the user’s question. You can use only one tool per message, and you’ll receive the result of that tool in the user’s next response. To complete a task, use tools step by step—each step should be guided by the outcome of the previous one.
+Tool Usage Rules:
+1. Always provide the correct values as arguments when using tools. Do not pass variable names—use actual values instead.
+2. You may perform multiple tool steps to complete a task.
+3. Avoid repeating a tool call with exactly the same parameters to prevent infinite loops.
+4. Think deeply and thoroughly. Use your own reasoning capability with high effort. Think sequentially. Think harder! Reflect. 
+</code></pre><p>Next, I set the following predefined parameters:</p>
+<pre tabindex="0"><code>{
+  &#34;temperature&#34;: 0.6,
+  &#34;top_p&#34;: 0.95,
+  &#34;top_k&#34;: 20
+}
+</code></pre><h1 id="example-1-simple-literature-review-on-moment-inequalities-in-econometrics-and-industrial-organization">Example 1: Simple Literature Review on Moment Inequalities in Econometrics and Industrial Organization</h1>
+<p>Here, I ask Grok 4 simple question with no advanced prompting technique:</p>
+<pre tabindex="0"><code>search the key literature in moment inequalities in econometrics and especially in industrial organization. use tools.
+</code></pre><p>Grok 4 then used <code>tavily_search</code> searching for paper on the internet, use <code>tavily_extract</code> to extract relevant information, and <code>search_papers</code> for pre-prints in arXiv. The result is the following (this is just copy-paste, judgement on the correctness of the result is left to you, the reader):</p>
+<p>===== START OF THE ANSWER =====</p>
+<h3 id="key-literature-on-moment-inequalities-in-econometrics-with-emphasis-on-industrial-organization">Key Literature on Moment Inequalities in Econometrics, with Emphasis on Industrial Organization</h3>
+<p>Based on my searches using the available tools (Tavily web search for general literature and arXiv paper search for recent preprints), I&rsquo;ve compiled a summary of the key literature on moment inequalities. This approach is particularly prominent in econometrics for handling partial identification—where models do not yield a single point estimate but rather a set of possible values consistent with data and assumptions. In industrial organization (IO), moment inequalities are widely used to model strategic interactions (e.g., entry games, auctions) under incomplete information or multiple equilibria, avoiding strong assumptions like unique equilibria or full parametric specifications.</p>
+<p>I&rsquo;ll structure this as follows:</p>
+<ul>
+<li><strong>Overview of Moment Inequalities</strong>: Core concepts and foundational works.</li>
+<li><strong>Key Seminal Papers</strong>: Influential theoretical and methodological contributions.</li>
+<li><strong>Applications in IO</strong>: Papers focusing on empirical IO problems.</li>
+<li><strong>Recent Developments</strong>: From arXiv search (mostly 2024–2025 papers).</li>
+<li><strong>Inference and Estimation</strong>: Key works on statistical methods.</li>
+<li><strong>Reviews and Handbooks</strong>: For deeper dives.</li>
+<li><strong>Gaps and Notes</strong>: Areas for further exploration.</li>
+</ul>
+<p>This is based on credible sources (e.g., NBER, Econometrica, arXiv). Where possible, I&rsquo;ve included direct links or arXiv IDs for access. If you&rsquo;d like me to download/read specific papers (using tools like download_paper or read_paper) or expand on any, let me know.</p>
+<h4 id="overview-of-moment-inequalities">Overview of Moment Inequalities</h4>
+<p>Moment inequalities arise in models where economic theory implies bounds (e.g., from optimizing behavior) rather than equalities. For example, in IO, revealed preference might imply that expected profits from an observed action are at least as high as from alternatives, leading to inequalities like ( E[\Delta \pi] \geq 0 ). These models often result in <strong>partial identification</strong>: the data and assumptions identify a set (Θ_I) rather than a single point. This is common in games with multiple equilibria or unobserved heterogeneity.</p>
+<p>Foundational motivation: Moment inequalities allow credible assumptions (e.g., weak rationality) while avoiding implausible ones (e.g., unique equilibria or perfect foresight). They are reviewed in Tamer (2010) and Ho and Rosen (2017).</p>
+<h4 id="key-seminal-papers">Key Seminal Papers</h4>
+<p>These papers established the framework and inference methods:</p>
+<ul>
+<li><strong>Pakes (2010)</strong>: &ldquo;Alternative Models for Moment Inequalities&rdquo; (Econometrica). Introduces inequalities from revealed preference in dynamic and strategic settings. Key for IO applications like entry and investment. <a href="https://www.jstor.org/stable/40929189" target="_blank" rel="noopener">Link</a></li>
+<li><strong>Pakes, Porter, Ho, and Ishii (2015)</strong>: &ldquo;Moment Inequalities and Their Application&rdquo; (Econometrica). Builds on Pakes (2010) with estimation strategies handling selection and measurement errors. Applications to auctions and contracts. <a href="https://www.jstor.org/stable/43616953" target="_blank" rel="noopener">Link</a></li>
+<li><strong>Tamer (2003)</strong>: &ldquo;Incomplete Simultaneous Discrete Response Model with Multiple Equilibria&rdquo; (Review of Economic Studies). Early work on partial identification in games; shows multiplicity leads to sets, not points. <a href="https://www.jstor.org/stable/3649945" target="_blank" rel="noopener">Link</a></li>
+<li><strong>Chernozhukov, Hong, and Tamer (2007)</strong>: &ldquo;Estimation and Confidence Regions for Parameter Sets in Econometric Models&rdquo; (Econometrica). General inference framework for partially identified models, including moment inequalities. <a href="https://www.jstor.org/stable/4502020" target="_blank" rel="noopener">Link</a></li>
+<li><strong>Andrews and Soares (2010)</strong>: &ldquo;Inference for Parameters Defined by Moment Inequalities Using Generalized Moment Selection&rdquo; (Econometrica). Addresses testing and confidence sets. <a href="https://www.jstor.org/stable/40929189" target="_blank" rel="noopener">Link</a></li>
+</ul>
+<h4 id="applications-in-industrial-organization">Applications in Industrial Organization</h4>
+<p>IO heavily uses moment inequalities for strategic settings (e.g., entry, auctions, contracts), where full models are intractable or require strong assumptions.</p>
+<ul>
+<li><strong>Ciliberto and Tamer (2009)</strong>: &ldquo;Market Structure and Multiple Equilibria in Airline Markets&rdquo; (Econometrica). Applies inequalities to airline entry; bounds competitive effects. <a href="https://www.jstor.org/stable/25620127" target="_blank" rel="noopener">Link</a></li>
+<li><strong>Ho and Pakes (2014)</strong>: &ldquo;Hospital Choices, Hospital Prices, and Financial Incentives to Physicians&rdquo; (AER). Uses inequalities for hospital choice with fixed effects and measurement error. <a href="https://www.aeaweb.org/articles?id=10.1257/aer.104.12.3841" target="_blank" rel="noopener">Link</a></li>
+<li><strong>Dickstein and Morales (2018)</strong>: &ldquo;What Do Exporters Know?&rdquo; (QJE). Inequalities for export decisions under weak expectations assumptions. <a href="https://academic.oup.com/qje/article/133/4/1753/5045898" target="_blank" rel="noopener">Link</a></li>
+<li><strong>Wollmann (2018)</strong>: &ldquo;Trucks Without Bailouts&rdquo; (AER). Repositioning in auto markets; inequalities for fixed costs. <a href="https://www.aeaweb.org/articles?id=10.1257/aer.20160857" target="_blank" rel="noopener">Link</a></li>
+<li><strong>Holmes (2011)</strong>: &ldquo;The Diffusion of Wal-Mart and Economies of Density&rdquo; (Econometrica). Dynamic location choices with inequalities to avoid full DP solutions. <a href="https://www.jstor.org/stable/41057442" target="_blank" rel="noopener">Link</a></li>
+<li><strong>Haile and Tamer (2003)</strong>: &ldquo;Inference with an Incomplete Model of English Auctions&rdquo; (JPE). Bounds for auction valuations without full model. <a href="https://www.journals.uchicago.edu/doi/10.1086/345589" target="_blank" rel="noopener">Link</a></li>
+</ul>
+<p>These papers often focus on partial identification due to multiplicity (e.g., equilibria) or incomplete data (e.g., unobserved heterogeneity).</p>
+<h4 id="recent-developments-from-arxiv-search">Recent Developments (from arXiv Search)</h4>
+<p>Recent arXiv papers (2024–2025) emphasize inference, extensions to high dimensions, and applications:</p>
+<ul>
+<li>Goff and Mbakop (2025): &ldquo;Inference on the Value of a Linear Program&rdquo; (arXiv:2506.06776). Inference for LP-based bounds in partial ID models.</li>
+<li>Fan, Pass, and Shi (2025): &ldquo;Partial Identification in Moment Models with Incomplete Data via Optimal Transport&rdquo; (arXiv:2503.16098). OT for bounds in incomplete data.</li>
+<li>Terschuur (2025): &ldquo;Locally Robust Policy Learning&rdquo; (arXiv:2502.13868). Policy learning with inequalities for inequality-aware welfare functions.</li>
+<li>Chiang (2025): &ldquo;Maximal Inequalities for Separately Exchangeable Empirical Processes&rdquo; (arXiv:2502.11432). Theory for processes in inequality models.</li>
+<li>Fallahgoul (2025): &ldquo;Scale-Insensitive Neural Network Significance Tests&rdquo; (arXiv:2501.15753). Testing in NN models with inequalities.</li>
+<li>Goff, Kédagni, and Wu (2024): &ldquo;Testing Identifying Assumptions in Parametric Separable Models&rdquo; (arXiv:2410.12098). Tests for exogeneity/homoskedasticity via inequalities.</li>
+<li>Ponomarev and Semenova (2024): &ldquo;On the Lower Confidence Band for the Optimal Welfare&rdquo; (arXiv:2410.07443). Bounds for welfare in policy learning.</li>
+</ul>
+<p>These are mostly econometric methods papers, with IO relevance (e.g., policy, auctions).</p>
+<h4 id="inference-and-estimation">Inference and Estimation</h4>
+<p>Key works on stats for moment inequalities:</p>
+<ul>
+<li><strong>Chernozhukov, Hong, and Tamer (2007)</strong>: Criterion function approach for sets.</li>
+<li><strong>Andrews and Shi (2013)</strong>: Conditional moment inequalities.</li>
+<li><strong>Chernozhukov, Lee, and Rosen (2013)</strong>: Intersection bounds.</li>
+<li><strong>Moon and Schorfheide (2012)</strong>: Bayesian vs. frequentist in partial ID.</li>
+<li><strong>Kline and Tamer (2016)</strong>: Bayesian inference for sets.</li>
+</ul>
+<p>Software: Stata packages like <code>clrbound</code> (Chernozhukov et al., 2015) and <code>cmi_test</code> (Andrews et al., 2017).</p>
+<h4 id="reviews-and-handbooks">Reviews and Handbooks</h4>
+<ul>
+<li><strong>Kline, Pakes, and Tamer (2021)</strong>: &ldquo;Moment Inequalities and Partial Identification in Industrial Organization&rdquo; (NBER WP 29409/Handbook of Econometrics). Comprehensive review. <a href="https://www.nber.org/system/files/working_papers/w29409/w29409.pdf" target="_blank" rel="noopener">PDF</a></li>
+<li><strong>Ho and Rosen (2017)</strong>: &ldquo;Partial Identification in Applied Research&rdquo; (Advances in Econ &amp; Econometrics).</li>
+<li><strong>Molinari (2020)</strong>: &ldquo;Econometrics with Partial Identification&rdquo; (Handbook of Econometrics).</li>
+<li><strong>Tamer (2010)</strong>: &ldquo;Partial Identification in Econometrics&rdquo; (Annual Review of Economics).</li>
+</ul>
+<h4 id="gaps-and-notes">Gaps and Notes</h4>
+<ul>
+<li><strong>Focus Areas</strong>: IO literature emphasizes entry/auctions; less on dynamics (e.g., Berry and Compiani, 2020).</li>
+<li><strong>Challenges</strong>: Multiplicity, computation, inference uniformity. Recent work addresses high dims/misspecification.</li>
+<li><strong>Tools Used</strong>: Tavily-search for overviews; search_papers for arXiv (broadened query to &ldquo;moment inequalities econometrics&rdquo; after initial zero results); tavily-extract for NBER paper details.</li>
+<li><strong>Limitations</strong>: arXiv focuses on recent preprints; older key works are in journals. No hits for very specific IO queries, but general searches captured them.</li>
+</ul>
+<p>This covers the core literature. If you need summaries of specific papers or further searches (e.g., on auctions), let me know!</p>
+<p>===== END OF THE ANSWER =====</p>
+<h1 id="example-2-search-pre-prints-on-arxiv-related-to-difference-in-differences-estimator-download-and-read-paper">Example 2: Search Pre-Prints on arXiv related to Difference in Differences estimator, Download and Read Paper.</h1>
+<p>In this example, I ask Grok 4 to search for pre-prints on arXiv related to Difference in Differences estimator. Grok 4 used <code>search_papers</code> tool (and also complemented by <code>tavily_search</code> for redundancy in the end).</p>
+<p>I first ask the following:</p>
+<pre tabindex="0"><code>search paper on arXiv related to Difference in Difference estimator. this must be in econometrics or statistics. give me three examples of papers.
+</code></pre><p>Grok 4 then answers:</p>
+<p>===== START OF THE ANSWER =====</p>
+<p>Here are three examples of papers on arXiv related to the Difference-in-Differences (DiD) estimator, specifically in the fields of econometrics or statistics. I selected these based on a targeted search, focusing on relevance, recency, and their placement in the econ.EM (Econometrics) category on arXiv.</p>
+<ol>
+<li>
+<p><strong>Title</strong>: Efficient Difference-in-Differences and Event Study Estimators<br>
+<strong>arXiv ID</strong>: 2506.17729<br>
+<strong>Description</strong>: This paper explores efficient estimators for DiD and event study designs in econometric analysis, addressing issues like bias and variance in panel data settings.</p>
+</li>
+<li>
+<p><strong>Title</strong>: Better Understanding Triple Differences Estimators<br>
+<strong>arXiv ID</strong>: 2505.09942<br>
+<strong>Description</strong>: This work provides insights into triple differences estimators, an extension of DiD, with a focus on identification, assumptions, and applications in econometrics.</p>
+</li>
+<li>
+<p><strong>Title</strong>: Difference-in-Differences Estimators for Treatments Continuously Distributed at Every Period<br>
+<strong>arXiv ID</strong>: 2201.06898<br>
+<strong>Description</strong>: This paper develops DiD estimators for scenarios where treatments are continuously distributed over time, including asymptotic results and doubly-robust methods for econometric applications.</p>
+</li>
+</ol>
+<p>===== END OF THE ANSWER =====</p>
+<p>Then I ask Grok 4 to download the first paper <strong>Efficient Difference-in-Differences and Event Study Estimators</strong>:</p>
+<pre tabindex="0"><code>download this paper . arXiv ID: 2506.17729
+</code></pre><p>Grok 4 then answers:</p>
+<p>===== START OF THE ANSWER =====</p>
+<p>The paper with arXiv ID 2506.17729 (&ldquo;Efficient Difference-in-Differences and Event Study Estimators&rdquo;) has been successfully downloaded and converted to a readable markdown format. It&rsquo;s now available as a resource for further actions, such as reading or analysis.</p>
+<p>If you&rsquo;d like me to read the full content, provide a more detailed summary, extract specific sections, or perform any other task with it, let me know!</p>
+<p>===== END OF THE ANSWER =====</p>
+<p>The downloaded paper is now on this directory &ldquo;C:\Users&lt;my name&gt;.arxiv-mcp-server\papers&rdquo;. It contains both PDF and Markdown format.</p>
+<p>Finally I ask Grok 4 to read the paper and give me a summary of the paper.</p>
+<pre tabindex="0"><code>read the paper (the one just downloaded), give me a summary of the paper.
+</code></pre><p>Grok 4 then answers:</p>
+<p>===== START OF THE ANSWER =====</p>
+<h3 id="summary-of-the-paper-efficient-difference-in-differences-and-event-study-estimators-arxiv-250617729">Summary of the Paper: &ldquo;Efficient Difference-in-Differences and Event Study Estimators&rdquo; (arXiv: 2506.17729)</h3>
+<p><strong>Authors</strong>: Xiaohong Chen (Yale University), Pedro H. C. Sant’Anna (Emory University), Haitian Xie (Peking University)<br>
+<strong>Date</strong>: June 24, 2025 (version in the content)<br>
+<strong>Abstract</strong>: This paper develops semiparametrically efficient estimators for Difference-in-Differences (DiD) and Event Study (ES) parameters in short panel data settings with heterogeneous treatment effects and variation in treatment timing (e.g., staggered adoption). It provides an equivalent characterization of DiD assumptions as sequential conditional moment restrictions, revealing nonparametric overidentification. The authors derive closed-form semiparametric efficient influence functions (EIFs) under common parallel trends assumptions, yielding the lowest asymptotic variance for regular, asymptotically normal estimators. They propose simple plug-in estimators that achieve these bounds by optimally weighting pre-treatment periods and comparison groups. Simulations and an empirical application show substantial precision gains in finite samples.</p>
+<h4 id="overview">Overview</h4>
+<p>The paper addresses key challenges in modern DiD and ES methods, which are widely used in economics (e.g., over 30% of 2024 NBER applied micro papers mention them). Traditional approaches like two-way fixed effects (TWFE) assume away treatment effect heterogeneity, while heterogeneity-robust methods (e.g., Callaway and Sant’Anna, 2021; Sun and Abraham, 2021) often yield wide confidence intervals in small samples and may inefficiently use pre-treatment data. The authors unify DiD estimation under point-identification assumptions (parallel trends and no anticipation), deriving efficient estimators that minimize asymptotic variance without parametric restrictions on heterogeneity, serial correlation, or homoskedasticity.</p>
+<h4 id="key-contributions">Key Contributions</h4>
+<ol>
+<li>
+<p><strong>Equivalent Characterization of DiD Models</strong>:</p>
+<ul>
+<li>DiD assumptions (parallel trends and no anticipation) are reformulated as sequential conditional moment restrictions on observables, showing that DiD models are nonparametrically overidentified (first such result in causal inference without functional-form restrictions).</li>
+<li>This links DiD to econometric models of sequential moments (Ai and Chen, 2012), enabling efficiency analysis and testable overidentification restrictions (e.g., Hausman-type tests in Appendix A).</li>
+</ul>
+</li>
+<li>
+<p><strong>Semiparametric Efficiency Bounds</strong>:</p>
+<ul>
+<li>Closed-form EIFs are derived for ATT(g,t) (group-time average treatment effects) and ES(e) under unconditional/conditional parallel trends, with/without staggered adoption.</li>
+<li>Efficiency requires non-uniform, covariate-specific weighting of pre-treatment periods and comparison groups (e.g., never-treated or not-yet-treated), based on conditional covariances of outcome changes.</li>
+<li>Existing estimators (e.g., TWFE, Callaway-Sant’Anna, Borusyak et al., 2024) are generally inefficient unless strong assumptions hold (e.g., no serial correlation, homoskedasticity).</li>
+</ul>
+</li>
+<li>
+<p><strong>Efficient Estimators</strong>:</p>
+<ul>
+<li>Plug-in estimators based on EIFs achieve the efficiency bounds; they are Neyman-orthogonal and simple to compute (e.g., using sample analogs for weights).</li>
+<li>Extensions include instrumented DiD (Appendix B) and tools for testing overidentification or visualizing weights.</li>
+</ul>
+</li>
+<li>
+<p><strong>Simulation and Empirical Evidence</strong>:</p>
+<ul>
+<li><strong>Simulations</strong>: Calibrated to CPS (single treatment) and Compustat (staggered) data, showing efficient estimators reduce RMSE by 40%+ and confidence intervals by 30%+ compared to alternatives.</li>
+<li><strong>Application</strong>: Revisiting Dobkin et al. (2018) on hospitalization effects on out-of-pocket spending, efficient estimators yield 30%+ precision gains (e.g., other methods need 65-104% larger samples for equivalent precision).</li>
+</ul>
+</li>
+</ol>
+<h4 id="implications">Implications</h4>
+<ul>
+<li><strong>Practical Gains</strong>: The framework improves inference in finite samples by optimally using pre-treatment data, unifying DiD methods and providing benchmarks for existing estimators.</li>
+<li><strong>Flexibility</strong>: Handles covariates, staggered designs, and overidentification tests without auxiliary assumptions.</li>
+<li><strong>Future Directions</strong>: Suggests extensions to nonlinear models (e.g., Changes-in-Changes), unbalanced panels, or repeated cross-sections.</li>
+<li><strong>Caveats</strong>: Assumes parallel trends and no anticipation; for violations, alternatives like synthetic DiD are recommended.</li>
+</ul>
+<p>This work advances DiD/ES methodology by emphasizing efficiency, offering tools for more powerful, robust causal inference in economics and related fields. The paper includes appendices with proofs, tests, and extensions.</p>
+<p>===== END OF THE ANSWER =====</p>
+<h1 id="reflection">Reflection</h1>
+<p>LLM with tools offer an improved way to perform literature review. Fascinating development!</p>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://regikusumaatmadja.com/post/simple_search_01/&amp;text=Simple%20Way%20to%20Search%20with%20LLM%20and%20Tools" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://regikusumaatmadja.com/post/simple_search_01/&amp;t=Simple%20Way%20to%20Search%20with%20LLM%20and%20Tools" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Simple%20Way%20to%20Search%20with%20LLM%20and%20Tools&amp;body=https://regikusumaatmadja.com/post/simple_search_01/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://regikusumaatmadja.com/post/simple_search_01/&amp;title=Simple%20Way%20to%20Search%20with%20LLM%20and%20Tools" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Simple%20Way%20to%20Search%20with%20LLM%20and%20Tools%20https://regikusumaatmadja.com/post/simple_search_01/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://regikusumaatmadja.com/post/simple_search_01/&amp;title=Simple%20Way%20to%20Search%20with%20LLM%20and%20Tools" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://regikusumaatmadja.com/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hu1dfa1b605e535243b8d1d4fd54b1b616_170367_270x270_fill_q75_lanczos_center.jpg" alt="Regi Kusumaatmadja"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://regikusumaatmadja.com/">Regi Kusumaatmadja</a></h5>
+      <h6 class="card-subtitle">Applied economist</h6>
+      <p class="card-text">I am an applied economist interested in Industrial Organization and Innovation</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:abdurrahman.regi@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:regi.kusumaatmadja@proton.me" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/abdurrahmanregi" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/abdurrahmanregi" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/regikusumaatmadja/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2025 Me. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+      
+
+    
+    <script src="/js/vendor-bundle.min.e66e385e2f1df861699d60acd7a9c670.js"></script>
+
+    
+    
+    
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+
+    
+    
+    
+    <script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+    
+    
+      <script src="/js/wowchemy-headroom.c251366b4128fd5e6b046d4c97a62a51.js" type="module"></script>
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.ab2f2890dbe3e2e83579366d3d6e8fd9.js"></script>
+
+    
+    
+    
+    
+    
+    
+      
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <script src="/js/wowchemy-publication.68f8d7090562ca65fc6d3cb3f8f2d2cb.js" type="module"></script>
+
+
+
+
+
+
+</body>
+</html>
