@@ -1,0 +1,1336 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.5.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Regi Kusumaatmadja" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Simple setup to let LLM in a chatbot to run Python and R codes. Usually, LLM only runs Python via an isolated VM, but not other languages." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://regikusumaatmadja.com/post/code_integration_jan/" />
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.c7b8d9abd591ba2253ea42747e3ac3f5.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha512-W0xM4mr6dEP9nREo7Z9z+9X70wytKvMGeDsj7ps2+xg5QPrEBXC8tAW1IFnzjR6eoJ90JmCnFzerQJTLzIEHjA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.1052fab8b7700a3dc49ee23683097d66.css" />
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://regikusumaatmadja.com/post/code_integration_jan/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@wowchemy" />
+    <meta property="twitter:creator" content="@wowchemy" />
+  
+  <meta property="og:site_name" content="Regi Kusumaatmadja" />
+  <meta property="og:url" content="https://regikusumaatmadja.com/post/code_integration_jan/" />
+  <meta property="og:title" content="LLM, Chatbot, and running Python and R codes | Regi Kusumaatmadja" />
+  <meta property="og:description" content="Simple setup to let LLM in a chatbot to run Python and R codes. Usually, LLM only runs Python via an isolated VM, but not other languages." /><meta property="og:image" content="https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2025-08-10T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2025-08-10T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://regikusumaatmadja.com/post/code_integration_jan/"
+  },
+  "headline": "LLM, Chatbot, and running Python and R codes",
+  
+  "datePublished": "2025-08-10T00:00:00Z",
+  "dateModified": "2025-08-10T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Regi Kusumaatmadja"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Regi Kusumaatmadja",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://regikusumaatmadja.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "Simple setup to let LLM in a chatbot to run Python and R codes. Usually, LLM only runs Python via an isolated VM, but not other languages."
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>LLM, Chatbot, and running Python and R codes | Regi Kusumaatmadja</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="d14402ce5054a08e5eb461ccc053140d" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.2ed908358299dd7ab553faae685c746c.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="header--fixed">
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Regi Kusumaatmadja</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Regi Kusumaatmadja</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/post/"><span>Posts</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>LLM, Chatbot, and running Python and R codes</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Aug 10, 2025
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    8 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h3 id="intro">Intro</h3>
+<p>I am using Grok 4 in Jan (a chatbot-like environment, similar to ChatGPT) to directly run Python and R codes on my computer. Why do I do this? I wanted to reduce the &lsquo;hallucination&rsquo; part of LLM.</p>
+<p>Think about it this way, if you use an LLM from a web-based app, such as chat.openai.com, grok.com, or gemini.google.com, it will run Python codes via an isolated VM. You can think of isolated VM as a &lsquo;sandbox&rsquo; environment, where the LLM can run Python codes, but it cannot access your local files or run other languages such as R.</p>
+<p>My idea here is to let the LLM run Python and R codes directly on my computer, so it can access my local files and run other languages. This way, I can reduce the &lsquo;hallucination&rsquo; part of LLM, because it can access my local files, packages/libraries, and run other languages.</p>
+<h3 id="setup">Setup</h3>
+<p>First, let us setup the environment for Grok. The prompt initiation I use is the following</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">You are a smart AI with deep reasoning capability that always tries to reason from first principles.
+</span></span><span class="line"><span class="cl">You have access to a set of tools to help you answer the user’s question. You can use only one tool per message, and you’ll receive the result of that tool in the user’s next response. To complete a task, use tools step by step—each step should be guided by the outcome of the previous one.
+</span></span><span class="line"><span class="cl">Tool Usage Rules:
+</span></span><span class="line"><span class="cl">1. Always provide the correct values as arguments when using tools. Do not pass variable names—use actual values instead.
+</span></span><span class="line"><span class="cl">2. You may perform multiple tool steps to complete a task.
+</span></span><span class="line"><span class="cl">3. Avoid repeating a tool call with exactly the same parameters to prevent infinite loops.
+</span></span><span class="line"><span class="cl">4. Think deeply and thoroughly. Use your own reasoning capability with high effort. Think sequentially. Think harder! Reflect. 
+</span></span><span class="line"><span class="cl">5. For web-related searches, leverage Tavily&#39;s tools (tavily-search for broad aggregation, tavily-extract for content pulls, tavily-crawl for multi-page scraping, tavily-map for site outlining) and Linkup&#39;s search-web (for deep, premium-sourced accuracy) complementarily. Prioritize Tavily for wide exploration to gather diverse overviews and initial URLs; use Linkup for deep verification and fact-checking on complex, academic, and/or business-specific queries. Chain tools sequentially: Start with tavily-search or search-web based on breadth vs. depth needs, then deepen by extracting/crawling with Tavily on results, alternating between APIs if outputs are incomplete, biased, or require cross-validation. Refine queries iteratively from prior outputs to ensure comprehensive, grounded responses.
+</span></span><span class="line"><span class="cl">6. For Python-based computations, data analysis, simulations, scripting tasks or others, use run_code_py to execute code on the local computer. This tool supports a stateful REPL environment with libraries including numpy, scipy, sympy, scikit-learn, pandas, matplotlib, nltk, beautifulsoup4, and others. Ensure code is properly formatted with correct indentation, import necessary libraries explicitly, and avoid operations that require internet access or external installations. Use this tool for tasks like numerical modeling, machine learning prototypes, data visualization, or web scraping simulations, chaining executions step-by-step based on previous outputs for iterative refinement.
+</span></span><span class="line"><span class="cl">7. For R-based statistical analysis, data manipulation, graphing, econometric tasks or others, use run_code_r to execute code on the local computer. This tool supports a stateful REPL environment with packages including data.table, ggplot2, fixest, parallel, and others. Ensure code is properly formatted, load necessary packages explicitly (e.g., library(data.table)), and avoid operations that require internet access or external installations. Use this tool for tasks like advanced regressions, parallel processing, data wrangling, or visualizations, selecting it over run_code_py when R&#39;s specialized statistical ecosystem is more suitable, and chain executions iteratively guided by prior results for complex workflows.
+</span></span><span class="line"><span class="cl">8. When choosing between run_code_py and run_code_r, assess the task&#39;s nature: Prefer run_code_r for statistics-heavy work (e.g., econometrics with fixest, fast data manipulation with data.table, or publication-quality plots with ggplot2), especially if the user mentions R or R-specific concepts. Prefer run_code_py for general scripting, numerical computations (e.g., with numpy/scipy), machine learning (e.g., scikit-learn), or text processing (e.g., nltk/beautifulsoup4), especially if Python is mentioned. If the user specifies a language, adhere strictly to it; if ambiguous, default to the tool whose libraries best match the task&#39;s core requirements, and consider chaining tools across languages only if a workflow explicitly benefits from both (e.g., Python for data prep, R for analysis), while avoiding unnecessary switches to prevent confusion or inefficiency.
+</span></span></code></pre></div><p>Next, I set the following predefined parameters:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;temperature&#34;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;top_p&#34;</span><span class="p">:</span> <span class="mf">0.95</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;top_k&#34;</span><span class="p">:</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="setup-local-python-mcp">Setup Local Python MCP</h3>
+<p>I create a Python file <code>run_code_py.py</code> as follows</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">logging</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">io</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">redirect_stdout</span><span class="p">,</span> <span class="n">redirect_stderr</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">mcp.server.fastmcp</span> <span class="kn">import</span> <span class="n">FastMCP</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Set up basic logging to stderr with flushing</span>
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">mcp</span> <span class="o">=</span> <span class="n">FastMCP</span><span class="p">(</span><span class="s2">&#34;Local Python Executor&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@mcp</span><span class="o">.</span><span class="n">tool</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&#34;Execute Python Code&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">run_code_py</span><span class="p">(</span><span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Execute Python code and return the output.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Supports libraries like pandas, numpy, etc.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Received code to execute: </span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">out</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">err</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="n">redirect_stdout</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="n">redirect_stderr</span><span class="p">(</span><span class="n">err</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">exec</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="p">{},</span> <span class="p">{})</span>
+</span></span><span class="line"><span class="cl">        <span class="n">output</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">error</span> <span class="o">=</span> <span class="n">err</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Execution result: Output=</span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="s2">, Error=</span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;Output:</span><span class="se">\n</span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">Errors (if any):</span><span class="se">\n</span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">if</span> <span class="n">output</span> <span class="ow">or</span> <span class="n">error</span> <span class="k">else</span> <span class="s2">&#34;No output.&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Exception: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;Error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Server started on stdio...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mcp</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="s2">&#34;stdio&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Server error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</span></span></code></pre></div><p>The idea of the above code is to setup a REPL environment for Grok to run Python codes locally. And, I setup the following <code>requirements.txt</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">pandas
+</span></span><span class="line"><span class="cl">numpy
+</span></span><span class="line"><span class="cl">scipy
+</span></span><span class="line"><span class="cl">scikit-learn
+</span></span><span class="line"><span class="cl">sympy
+</span></span><span class="line"><span class="cl">matplotlib
+</span></span><span class="line"><span class="cl">seaborn
+</span></span><span class="line"><span class="cl">requests
+</span></span><span class="line"><span class="cl">beautifulsoup4
+</span></span><span class="line"><span class="cl">nltk
+</span></span><span class="line"><span class="cl">spacy
+</span></span><span class="line"><span class="cl">textblob
+</span></span><span class="line"><span class="cl">opencv-python
+</span></span><span class="line"><span class="cl">scikit-image
+</span></span><span class="line"><span class="cl">mcp
+</span></span><span class="line"><span class="cl">e2b-mcp
+</span></span><span class="line"><span class="cl">fastapi
+</span></span><span class="line"><span class="cl">uvicorn
+</span></span><span class="line"><span class="cl">pydantic
+</span></span><span class="line"><span class="cl">modelcontextprotocol
+</span></span><span class="line"><span class="cl">fastmcp
+</span></span></code></pre></div><p>You can, of course, have different libraries to be used. But I found these are the libraries I am using a lot. Here I am following the community suggestion to have isolated Python libraries. You can then just <code>uv pip install -r requirements.txt</code> to install all of the libraries.</p>
+<p>Now, let us add the local Python MCP Server to Jan. Here is the JSON.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;C:\\Users\\abdur\\Documents\\python-MCP\\venv\\Scripts\\python.exe&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;-u&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;C:\\Users\\abdur\\Documents\\python-MCP\\run_code_py.py&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;env&#34;</span><span class="p">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;active&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>That&rsquo;s it for the local Python MCP setup!</p>
+<h3 id="setup-local-r-mcp">Setup Local R MCP</h3>
+<p>Next, let us setup the local R MCP. I create a file <code>run_code_r.R</code> as follows</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">mcpr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a global environment to maintain state across tool calls</span>
+</span></span><span class="line"><span class="cl"><span class="n">repl_env</span> <span class="o">&lt;-</span> <span class="nf">new.env</span><span class="p">(</span><span class="n">parent</span> <span class="o">=</span> <span class="nf">globalenv</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Define the run_code tool</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_code_tool</span> <span class="o">&lt;-</span> <span class="nf">new_tool</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;run_code_r&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">description</span> <span class="o">=</span> <span class="s">&#34;Execute arbitrary R code in a stateful REPL-like environment. Previous executions persist in the environment, similar to a console session. The tool captures and returns the output, including printed results or errors.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">input_schema</span> <span class="o">=</span> <span class="nf">schema</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">properties</span> <span class="o">=</span> <span class="nf">properties</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="n">code</span> <span class="o">=</span> <span class="nf">property_string</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;Code&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;The R code to execute. Can be single or multi-line statements.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">required</span> <span class="o">=</span> <span class="kc">TRUE</span>
+</span></span><span class="line"><span class="cl">      <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">handler</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">code_str</span> <span class="o">&lt;-</span> <span class="n">input</span><span class="o">$</span><span class="n">code</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Attempt to parse and execute the code</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">tryCatch</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># Capture output from evaluation and potential auto-printing</span>
+</span></span><span class="line"><span class="cl">      <span class="n">output</span> <span class="o">&lt;-</span> <span class="nf">capture.output</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="n">parsed_code</span> <span class="o">&lt;-</span> <span class="nf">parse</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">code_str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">withVisible</span><span class="p">(</span><span class="nf">eval</span><span class="p">(</span><span class="n">parsed_code</span><span class="p">,</span> <span class="n">envir</span> <span class="o">=</span> <span class="n">repl_env</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">if </span><span class="p">(</span><span class="n">result</span><span class="o">$</span><span class="n">visible</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="o">$</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">})</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">      <span class="c1"># Return the captured output as text</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">response_text</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;\n&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="n">error</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># Return error message if execution fails</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">response_text</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;Error:&#34;</span><span class="p">,</span> <span class="n">e</span><span class="o">$</span><span class="n">message</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create the MCP server</span>
+</span></span><span class="line"><span class="cl"><span class="n">r_code_server</span> <span class="o">&lt;-</span> <span class="nf">new_server</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;run_code_r&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">description</span> <span class="o">=</span> <span class="s">&#34;A server for running R code via MCP, providing a stateful code execution capability.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">version</span> <span class="o">=</span> <span class="s">&#34;1.0.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add the run_code tool to the server</span>
+</span></span><span class="line"><span class="cl"><span class="n">r_code_server</span> <span class="o">&lt;-</span> <span class="nf">add_capability</span><span class="p">(</span><span class="n">r_code_server</span><span class="p">,</span> <span class="n">run_code_tool</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Serve the MCP server</span>
+</span></span><span class="line"><span class="cl"><span class="nf">serve_io</span><span class="p">(</span><span class="n">r_code_server</span><span class="p">)</span>
+</span></span></code></pre></div><p>The code uses a new package called <code>mcpr</code>. The main difference between R setup to the Python ones is that, for R, I have a global libraries. So no versioning for R (Oops!).</p>
+<p>Now, let us add the local R MCP Server to Jan. Here is the JSON.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;Rscript&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;C:\\Users\\abdur\\OneDrive\\Work\\R-MCP\\run_code_r.R&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;env&#34;</span><span class="p">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;active&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>That&rsquo;s it for the local R MCP setup!</p>
+<h3 id="usage-and-examples">Usage and Examples</h3>
+<p>Now, we can use Grok in Jan, and ask it to run something using Python and R natively, in our computer.</p>
+<p>Prompt:</p>
+<pre tabindex="0"><code>Run a Monte Carlo simulation with 10,000 iterations to estimate \pi. use run_code_py tools
+</code></pre><p>Grok&rsquo;s answer:</p>
+<pre tabindex="0"><code>The Monte Carlo simulation with 10,000 iterations estimates π as approximately 3.1476.
+</code></pre><p>and to answer the above, Grok is natively using <code>run_code_py</code>. See the following JSON argument and output.</p>
+<p>Arguments:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;code&#34;</span><span class="p">:</span><span class="s2">&#34;import random\nn = 10000\ninside = 0\nfor _ in range(n):\n    x = random.uniform(-1, 1)\n    y = random.uniform(-1, 1)\n    if x**2 + y**2 &lt;= 1:\n        inside += 1\npi_estimate = 4 * inside / n\nprint(pi_estimate)&#34;</span><span class="p">}</span>
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;Output:\n3.1476\n\nErrors (if any):\n&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>I ask Grok again to now use <code>run_code_r</code> tools.</p>
+<p>Prompt:</p>
+<pre tabindex="0"><code>Now do the same but with run_code_r tools
+</code></pre><p>Grok&rsquo;s answer:</p>
+<pre tabindex="0"><code>The Monte Carlo simulation with 10,000 iterations using R estimates π as approximately 3.1364.
+</code></pre><p>and to answer the above, Grok is natively using <code>run_code_r</code>. See the following JSON argument and output.</p>
+<p>Arguments:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;code&#34;</span><span class="p">:</span><span class="s2">&#34;n &lt;- 10000\nx &lt;- runif(n)\ny &lt;- runif(n)\ninside &lt;- sum(x^2 + y^2 &lt;= 1)\npi_estimate &lt;- 4 * inside / n\nprint(pi_estimate)&#34;</span><span class="p">}</span>
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;[1] 3.1364&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;text&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="final-thoughts">Final Thoughts</h3>
+<p>A very exciting development in AI that I use at this moment! I think people can barely cheaply criticize AI by using the slur of <code>stochastic parrot</code> anymore. Haha!</p>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://regikusumaatmadja.com/post/code_integration_jan/&amp;text=LLM,%20Chatbot,%20and%20running%20Python%20and%20R%20codes" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://regikusumaatmadja.com/post/code_integration_jan/&amp;t=LLM,%20Chatbot,%20and%20running%20Python%20and%20R%20codes" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LLM,%20Chatbot,%20and%20running%20Python%20and%20R%20codes&amp;body=https://regikusumaatmadja.com/post/code_integration_jan/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://regikusumaatmadja.com/post/code_integration_jan/&amp;title=LLM,%20Chatbot,%20and%20running%20Python%20and%20R%20codes" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=LLM,%20Chatbot,%20and%20running%20Python%20and%20R%20codes%20https://regikusumaatmadja.com/post/code_integration_jan/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://regikusumaatmadja.com/post/code_integration_jan/&amp;title=LLM,%20Chatbot,%20and%20running%20Python%20and%20R%20codes" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://regikusumaatmadja.com/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hu1dfa1b605e535243b8d1d4fd54b1b616_170367_270x270_fill_q75_lanczos_center.jpg" alt="Regi Kusumaatmadja"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://regikusumaatmadja.com/">Regi Kusumaatmadja</a></h5>
+      <h6 class="card-subtitle">Applied economist</h6>
+      <p class="card-text">I am an applied economist interested in Industrial Organization and Innovation</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:abdurrahman.regi@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:regi.kusumaatmadja@proton.me" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/abdurrahmanregi" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/abdurrahmanregi" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/regikusumaatmadja/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2025 Me. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+      
+
+    
+    <script src="/js/vendor-bundle.min.e66e385e2f1df861699d60acd7a9c670.js"></script>
+
+    
+    
+    
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+
+    
+    
+    
+    <script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+    
+    
+      <script src="/js/wowchemy-headroom.c251366b4128fd5e6b046d4c97a62a51.js" type="module"></script>
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.ab2f2890dbe3e2e83579366d3d6e8fd9.js"></script>
+
+    
+    
+    
+    
+    
+    
+      
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <script src="/js/wowchemy-publication.68f8d7090562ca65fc6d3cb3f8f2d2cb.js" type="module"></script>
+
+
+
+
+
+
+</body>
+</html>
