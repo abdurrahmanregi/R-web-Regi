@@ -49,7 +49,7 @@ I consider myself an applied economist with interests in Industrial Organization
 
 At this moment, I am very excited to dig deeper into how large language models (LLMs) and what people call agentic AI can help me with mathematical derivations and checking their coherency, as well as code implementations of such thoughts.
 
-Here, I write some of my random thoughts, not necessarily in the standard academic economist template. For that, I suggest you to visit my academic Google site <a href="https://sites.google.com/view/regi-kusumaatmadja/" target="_blank">here</a>.
+Here, I write some of my random thoughts, not necessarily in the standard academic economist template. For that, I suggest you to visit my academic Google site <a href="https://sites.google.com/view/regi-kusumaatmadja/" target="_blank">here</a>. You can check my CV [here](kusumaatmadja_cv_tinbergen.pdf).
 
 I also like to play tennis. Send me an email if you want to talk or play some games.
 
