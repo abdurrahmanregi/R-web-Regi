@@ -57,4 +57,4 @@ I also like to play tennis. Send me an email if you want to talk or play some ga
 - (short/long) postdoctoral positions in academia,
 - (graduate intern/entry-level) consulting roles in the private sector. 
 
-<em>(website last update: 2025-07-04)</em>
+<em>(website last update: 2025-10-24)</em>
