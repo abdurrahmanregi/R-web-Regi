@@ -23,4 +23,4 @@ Dehumidifiers, though? They slip through the cracks like a nimble workaround, en
 
 In the end, the arithmetic boils down to this: Households, stepping up as the true architects in Becker's vision of domestic enterprise, can recalibrate their own frontiers of defense, reaping the quiet yields of potential preserved without pinning hopes on the plunderers' whims. Front-load the fight against the _damp_ today, and the ledgers of tomorrow swell with the surplus of _minds unblunted_, a private hedge against public neglect that pays dividends in _every sharpened equation_ solved or page turned.
 
-_(assisted by Grok 4.1 Thinking)_
+_(assisted by Grok 4.1 Thinking. The simplified version in Bahasa Indonesia is available [here](https://abdurrahmanregi.medium.com/kelembapan-udara-di-indonesia-adalah-pajak-bagi-otak-kita-fc8bd9d1a645))_
