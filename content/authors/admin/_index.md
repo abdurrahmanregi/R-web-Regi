@@ -53,8 +53,6 @@ Here, I write some of my random thoughts, not necessarily in the standard academ
 
 I also like to play tennis. Send me an email if you want to talk or play some games.
 
-**News**: I am open to, interested in, and looking for:
-- (short/long) postdoctoral positions in academia,
-- (graduate intern/entry-level) consulting roles in the private sector. 
+**News**: I will be joining Düsseldorf Institute for Economics (DICE) as a postdoctoral researcher in October '26.
 
 <em>(website last update: 2025-10-24)</em>
