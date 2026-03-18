@@ -55,4 +55,4 @@ I also like to play tennis. Send me an email if you want to talk or play some ga
 
 **News**: I will be joining Düsseldorf Institute for Economics (DICE) as a postdoctoral researcher in October '26.
 
-<em>(website last update: 2025-10-24)</em>
+<em>(website last update: 2026-03-18)</em>
