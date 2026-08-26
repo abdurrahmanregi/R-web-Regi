@@ -1,0 +1,192 @@
+% LaTeX Curriculum Vitae Template
+%
+% Copyright (C) 2004-2009 Jason Blevins <jrblevin@sdf.lonestar.org>
+% http://jblevins.org/projects/cv-template/
+%
+% You may use use this document as a template to create your own CV
+% and you may redistribute the source code freely. No attribution is
+% required in any resulting documents. I do ask that you please leave
+% this notice and the above URL in the source code if you choose to
+% redistribute this file.
+\documentclass[10pt,letterpaper]{article}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+% Comment the following line to use the default Computer Modern font
+% instead of the Palatino font provided by the mathpazo package.
+% Remove the 'osf' bit if you don't like the old style figures.
+\usepackage[sc,osf]{mathpazo}
+% In practice, I use the following font packages instead of mathpazo.
+% beramono provides a nice fixed-width font. xagaramon uses the
+% (commercial) Adobe Garamond font.
+%\usepackage[scaled=0.75]{beramono}
+%\usepackage[osf]{xagaramon}
+% Set your name here
+\def\name{Regi Kusumaatmadja}
+% Replace this with a link to your CV if you like, or set it empty
+% (as in \def\footerlink{}) to remove the link in the footer:
+\def\footerlink{https://sites.google.com/view/regi-kusumaatmadja/}
+% The following metadata will show up in the PDF properties
+\hypersetup{
+  colorlinks = true,
+  urlcolor = black,
+  pdfauthor = {\name},
+  pdfkeywords = {economics, econometrics, industrial organization, applied econometrics, innovation,
+    applied microeconomics},
+  pdftitle = {\name: Curriculum Vitae},
+  pdfsubject = {Curriculum Vitae},
+  pdfpagemode = UseNone
+}
+\geometry{
+  body={6.5in, 8.5in},
+  left=1.0in,
+  top=1.25in
+}
+% Customize page headers
+\pagestyle{myheadings}
+\markboth{TINBERGEN INSTITUTE}{\name}
+\thispagestyle{empty}
+% Custom section fonts
+\usepackage{sectsty}
+\sectionfont{\rmfamily\mdseries\Large}
+\subsectionfont{\rmfamily\mdseries\itshape\large}
+% Other possible font commands include:
+% \ttfamily for teletype,
+% \sffamily for sans serif,
+% \bfseries for bold,
+% \scshape for small caps,
+% \normalsize, \large, \Large, \LARGE sizes.
+% Don't indent paragraphs.
+\setlength\parindent{0em}
+% Make lists without bullets
+\renewenvironment{itemize}{
+  \begin{list}{}{
+    \setlength{\leftmargin}{1.5em}
+  }
+}{
+  \end{list}
+}
+\begin{document}
+\centerline{{\huge \name}}
+\vspace{0.1in}
+% {\small IMPORTANT most agencies like central banks block google drive and dropbox. Use for example Github to host your CV}
+\vspace{0.25in}
+% Place name at left
+% {\huge \name}
+% Alternatively, print name centered and bold:
+%\centerline{\huge \bf \name}
+\vspace{0.25in}
+\begin{minipage}{0.59\textwidth}
+Department of Economics, VU Amsterdam \\
+Email: \href{mailto:r.kusumaatmadja@vu.nl}{r.kusumaatmadja@vu.nl} \\
+Website: \href{https://sites.google.com/view/regi-kusumaatmadja}{https://sites.google.com/view/regi-kusumaatmadja}
+\end{minipage}
+% \hfill
+% \begin{minipage}{0.45\textwidth}
+% BUSINESS ADDRESS \\
+% Department of Economics \\
+% VU Amsterdam \\
+% De Boelelaan 1105 \\
+% 1081 HV Amsterdam \\
+% The Netherlands \\
+% Tel: 
+% \end{minipage}
+% \vspace{0.15in}
+% Citizenship: Indonesian \hfill Gender: M \hfill Date of Birth: 06/21/1994
+\section*{Education}
+VU Amsterdam and Tinbergen Institute, Ph.D. in Economics, Expected Completion: 2026. \\
+Tinbergen Institute, M.Phil. in Economics, 2021. \\
+VU Amsterdam, M.Sc. in Economics, 2018. \\
+University of Indonesia, B.Sc. in Physics, 2016 (Best Graduate).
+\section*{Letter Writers}
+\noindent\begin{tabular}{@{}p{0.48\textwidth}@{\hspace{0.04\textwidth}}p{0.48\textwidth}@{}}
+\textbf{prof. dr. Jos\'e Luis Moraga-Gonz\'alez} &
+\textbf{prof. dr. Sabien Dobbelaere} \\
+VU Amsterdam \& T\'el\'ecom Paris &
+VU Amsterdam \\
+Tinbergen Institute, CEPR, CESifo &
+Tinbergen Institute, IZA \\
+Email: \href{mailto:j.l.moragagonzalez@vu.nl}{j.l.moragagonzalez@vu.nl} &
+Email: \href{mailto:sabien.dobbelaere@vu.nl}{sabien.dobbelaere@vu.nl} \\[0.3in]
+\textbf{prof. dr. Mark J. Roberts} &
+\textbf{prof. dr. Eric J. Bartelsman} (placement dir.) \\
+Pennsylvania State University &
+VU Amsterdam \\
+NBER, ZEW &
+Tinbergen Institute, IZA \\
+Email: \href{mailto:mroberts@psu.edu}{mroberts@psu.edu} &
+Email: \href{mailto:e.j.bartelsman@vu.nl}{e.j.bartelsman@vu.nl}
+\end{tabular}
+% \textbf{prof. dr. Eric J. Bartelsman} (placement director) \\
+% Department of Economics, VU Amsterdam \\
+% Fellows, Tinbergen Institute and IZA \\
+% Email: \href{mailto:e.j.bartelsman@vu.nl}{e.j.bartelsman@vu.nl}
+\section*{Visiting Position}
+2026.05 - 2026.06, CUNEF Universidad Madrid, invited by \textbf{dr. Costanza Cincotta} \\
+2023.01 - 2023.06, the Pennsylvania State University, invited by \textbf{prof. dr. Mark J. Roberts}
+\section*{Research and Teaching Areas}
+Primary Fields: Industrial Organization, Economics of Innovation \\
+Secondary fields: Applied Econometrics, Applied Microeconomics 
+\input{generated/research_in_progress.tex}
+\section*{Teaching Experience}
+2021-2025 TA, VU Amsterdam, Introduction to Econometrics (MSc). Eval: 4.3/5.0 \\
+2021-2025 TA, VU Amsterdam, Applied Econometrics (MSc). Eval: 4.7/5.0 \\
+2022-2025 Supervisor, VU Amsterdam, Research Project and Thesis (BSc + MSc). \\
+2021-2024 Instructor, VU Amsterdam, Math, Statistics, Micro, and R (Refresher MSc). \\
+2022 TA, VU Amsterdam, Microeconomics I (BSc). \\
+2021-2025 Guest Lecturer, VU Amsterdam, Urban Economic Challenges \& Policies (MSc). 
+\section*{Relevant Experience}
+2023, EARIE 1st Summer School on Entry Model, LUISS - Rome. \\
+2022, Econometric Society's Dynamic Structural Econometrics Summer School, MIT. \\
+2019, Research on Productivity, Trade, and Growth Summer School, Tinbergen Institute. \\
+2020-2021, RA for Eric J. Bartelsman and Sabien Dobbelaere, VU Amsterdam, MICROPROD project. \\
+2018-2019, Research Associate, Institute for Economic \& Social Research, University of Indonesia (LPEM FEB UI).
+\section*{Scholarships, Honors, and Awards}
+2025, Excellence in Teaching Award, VU Amsterdam. \\
+2023, Research Visit Grant, VU Amsterdam (monetary grant). \\
+2019-2021, Tinbergen Institute - Full Scholarship (tuition \& living cost). \\
+2017, VU Amsterdam Fellowship Programme (tuition). \\
+2017, Holland Scholarship Programme (living cost). \\
+2016, Best Graduate, Department of Physics, University of Indonesia (monetary prize). \\
+2016, Top 1 (one) Percent, Faculty of Mathematics and Natural Sciences, University of Indonesia. \\
+2014-2016, XL-Axiata Future Leaders Scholarship (leadership programme \& in-kind benefits). \\
+2014-2015, Karya Salemba Empat Scholarship (tuition \& living cost). 
+\section*{Publications}
+\textbf{Evaluating the congestion-reducing effects of road rationing policy: Evidence from Jakarta's odd-even policy}. \textit{Case Studies on Transport Policy} (2025), with M. Halley Yudhistira, Y. Sofiyandi, and M. Firman Hidayat. (previously circulated as Does Traffic Management Matter? Evaluating Congestion Effect of Odd-Even Policy in Jakarta)
+
+\vspace{0.1in}
+
+\textbf{Theoretical exploration of optical response of $Fe_{3}O_{4}$-reduced graphene oxide nano-particle system within dynamical mean-field theory}. \textit{IOP Conf. Ser.: Mater. Sci. Eng.} (2017), with M.A. Majidi, A.D. Fauzi, W.Y. Phan, A. Taufik, R. Saleh, and A. Rusydi.
+% \section*{Research in Progress}
+% \textbf{Internal and External R\&D: An analysis of costs and benefits (Job Market Paper)} 
+% This paper analyzes the costs and benefits of internal and external R\&D activities. Using Dutch production and innovation surveys between 2000 and 2020 focusing on the IT industry, I document an increasing trend of R\&D activities across industries and present evidence suggesting that internal and external R\&D are complementary. To rationalize these findings, I build and estimate a dynamic discrete choice model of R\&D, which explicitly includes specific investment costs of R\&D. I find that the cost of doing external R\&D is $\approx 4$ times higher than the internal R\&D, reflecting the transaction costs of such contract and explaining the observed small share of external R\&D firms in the data. To mimic the Dutch Tax Incentives for Innovation scheme, I simulate the effect of two types of R\&D subsidization programs. I find that if the government has no preference for any particular R\&D activity, the share of R\&D-active firms increases the most and leads to higher change in the firm's total valuation. On the other hand, if the government prefers the firms only to perform internal R\&D, the share of R\&D-active firms is practically unchanged and leads to lower change in the valuation.
+% \vspace{0.05in}
+% \textit{Presentation}: \href{http://asesec.org/jornadas_economia_industrial/programme.html}{JEI - Gran Canaria} (2022), \href{https://sites.google.com/view/phd-evs2020/home?authuser=0}{Ph.D.-EVS} (2022), IO/Applied Micro Brownbag - Penn State (2023), VU Amsterdam Internal Seminar (2023), \href{https://earie.org/programme-rome-2023/}{EARIE - Rome} (2023), Tinbergen Institute Ph.D. Seminar (2023), DKIIS - Valencia (2023), \href{https://econ.la.psu.edu/comparative-analysis-of-enterprise-data-caed/}{CAED} - Penn State (2024), \href{https://economicdynamics.org/sedam_2024/}{SED Meeting} - Barcelona (2024), \href{https://us10.forward-to-friend.com/forward/preview?u=bb253d28cb05d3719c9e0c960&id=c939ef0aa0}{CEPR Workshop: Trade, Geography, and Industrial Organization - Erasmus Rotterdam} (2024, poster), \href{https://sites.google.com/view/apioc-2024}{APIOC - Seoul} (2024), CEPR Symposium - Paris (2024, poster), EEA-ESEM - Bordeaux (2025)
+% \vspace{0.1in}
+% \textbf{Merger and Innovation: An Exploration of Firms' Scope and Direction of Innovation}, with S. Dobbelaere and J. L. Moraga-Gonzalez.
+% Mergers are often justified as enhancing innovation through synergies, yet their effects on the scope (magnitude) and direction (composition) of firm innovation remain debated. This paper develops a theoretical framework integrating mergers with multi-project innovation decisions, showing that: mergers can increase, decrease, or leave unchanged scope and direction depending on project substitutability. Empirically, using a version of the matching estimator on U.S. public mergers from 1980 to 2020, we find no robust overall change in innovation scope but improved directional alignment to high-impact benchmarks by 0.02 (on a 0-1 cosine similarity scale). Heterogeneity reveals downsides: high technological overlap reduces scope by 21–60\% and diverges direction by 0.07; inactive acquirer–active target mergers shrink scope by 47\% and diverge by 0.21; both-active cases cut scope by 16\% and diverge by 0.06. These findings highlight mergers' potential to contract research diversity in overlapping or innovation-intensive deals, informing antitrust policy in tech-heavy industries.
+% \vspace{0.05in}
+% \textit{Presentation}: VU Amsterdam Internal Seminar (2024), Tinbergen Institute Workshop in Economics of Innovation (2025)
+% \vspace{0.1in}
+% \textbf{Entry into Innovation Areas} 
+% This paper investigates the notion of innovation direction as the outcome of firms' entry decisions into specific innovation areas. Using Latent Dirichlet Allocation, a natural language processing technique in topic modeling, on 631,000 U.S. electronics patents (1990–2019), I first optimally classify each patent and firm's innovation portfolio into 20 innovation areas. Key stylized facts reveal persistent multi-domain engagement, with patents and firms averaging 2.86 and 4.68 topics respectively, alongside rising entry in software-intensive fields like user interfaces and content services, contrasted by declines in capital-intensive areas such as memory architecture. Valuation heterogeneity is evident, with patent values increasing unevenly across domains, while competitive dynamics show varying competitor numbers over time. To explain these patterns, I build an entry model estimated via moment inequalities that provides bounds on parameters, indicating that a 1\% rise in competitors reduces the firm's innovation profit by 18.44 to 56.85 million USD, an increase of one standard deviation of the portfolio diversification boosts the profit by 0.57 to 36.81 million USD, and the average entry costs are bounded at 75.93 million USD.
+% \vspace{0.1in}
+% % \section*{Research in Progress}
+% \textbf{The Impact of Subsidy on Direction and Scope of Innovation}, with C. Cincotta.
+% \bigskip
+\section*{Policy Work}
+\textbf{The sky in blues: on the recent development of Indonesian airlines industry}. \textit{LPEM FEB UI WP} (2019), with C. Nuryakin, N. W. G. Massiw, A. U. Lumbanraja, S. Hambali, and D. Anindita 
+\section*{Miscellaneous}
+Language: Indonesian (native), English (fluent), Dutch (basic-intermediate), Arabic (basic-intermediate)
+
+\smallskip
+Software: R, Python, Rust
+% \bigskip
+% Footer
+\begin{center}
+  \begin{footnotesize}
+    Last updated: \today \\
+    \href{\footerlink}{\texttt{\footerlink}}
+  \end{footnotesize}
+\end{center}
+\end{document}

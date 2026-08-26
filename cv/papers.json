@@ -1,0 +1,32 @@
+{
+  "papers": [
+    {
+      "id": "internal-external-rd",
+      "source": "../../VU-Internal-External-RD/titleInput.tex",
+      "job_market_paper": true,
+      "with": null,
+      "presentation": "\\href{http://asesec.org/jornadas_economia_industrial/programme.html}{JEI - Gran Canaria} (2022), \\href{https://sites.google.com/view/phd-evs2020/home?authuser=0}{Ph.D.-EVS} (2022), IO/Applied Micro Brownbag - Penn State (2023), VU Amsterdam Internal Seminar (2023), \\href{https://earie.org/programme-rome-2023/}{EARIE - Rome} (2023), Tinbergen Institute Ph.D. Seminar (2023), DKIIS - Valencia (2023), \\href{https://econ.la.psu.edu/comparative-analysis-of-enterprise-data-caed/}{CAED} - Penn State (2024), \\href{https://economicdynamics.org/sedam_2024/}{SED Meeting} - Barcelona (2024), \\href{https://us10.forward-to-friend.com/forward/preview?u=bb253d28cb05d3719c9e0c960&id=c939ef0aa0}{CEPR Workshop: Trade, Geography, and Industrial Organization - Erasmus Rotterdam} (2024, poster), \\href{https://sites.google.com/view/apioc-2024}{APIOC - Seoul} (2024), CEPR Symposium - Paris (2024, poster), EEA-ESEM - Bordeaux (2025), CEPR IO Virtual Gathering (2025)"
+    },
+    {
+      "id": "entry-innovation-areas",
+      "source": "../../Rust-Entry-Innovation-Area/LaTeX/titleInput.tex",
+      "job_market_paper": false,
+      "with": null,
+      "presentation": "VU Amsterdam Internal Seminar (2025)"
+    },
+    {
+      "id": "subsidy-innovation",
+      "source": "../../R-Subsidy-Innovation/LaTeX/titleInput.tex",
+      "job_market_paper": false,
+      "with": "C. Cincotta",
+      "presentation": null
+    },
+    {
+      "id": "mergers-innovation",
+      "source": "../../R-Mergers-Innovation-Computation/LaTeX/titleInput.tex",
+      "job_market_paper": false,
+      "with": "S. Dobbelaere and J. L. Moraga-Gonzalez",
+      "presentation": "VU Amsterdam Internal Seminar (2024), Tinbergen Institute Workshop in Economics of Innovation (2025)"
+    }
+  ]
+}

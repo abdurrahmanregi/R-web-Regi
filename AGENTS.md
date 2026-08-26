@@ -1,0 +1,28 @@
+# R-web-Regi — agent notes
+
+Hugo Academic / Wowchemy personal site, built locally with **blogdown** and Hugo **0.100.0**, deployed on Netlify from `main`. Live URL: https://regikusumaatmadja.com/
+
+## Build and preview
+
+- Site: `blogdown::build_site()` from repo root (or `Rscript -e "blogdown::build_site()"`). Output is `public/` (gitignored).
+- Preview: `blogdown::serve_site()`.
+- Missing Hugo: `blogdown::install_hugo("0.100.0")`.
+- Do not commit `public/` or `resources/`. Netlify runs `hugo` on push.
+
+## CV
+
+Local-only compile. Do not round-trip a PDF from Overleaf.
+
+- Edit `cv/kusumaatmadja_cv.tex` for CV chrome (education, talks lists live in `cv/papers.json`).
+- `cv/compile.ps1` extracts titles/abstracts from sibling paper `titleInput.tex` files, writes `cv/generated/research_in_progress.tex`, compiles with `pdflatex`, copies to `static/kusumaatmadja_cv_tinbergen.pdf`.
+- Dissertation chapter order is the array order in `cv/papers.json`.
+- Paper paths are relative to `cv/` and assume repos sit next to this one under `Work/` (JMP, Entry, Subsidy, Mergers).
+- Ignore `cv/build/`. Commit the generated snippet and the PDF so GitHub/Netlify do not need the paper repos or TeX.
+
+About page link: `/kusumaatmadja_cv_tinbergen.pdf` in `content/authors/admin/_index.md`.
+
+## Do not
+
+- Force-push `main` unless explicitly asked.
+- Commit secrets, `.Rhistory`, or Hugo `public/`.
+- Change theme vendored under `themes/` unless the task is a theme update.

@@ -6,3 +6,6 @@
 # Hugo build output
 public/
 resources/
+
+# LaTeX build artifacts for the CV
+cv/build/
