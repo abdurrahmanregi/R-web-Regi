@@ -5,6 +5,10 @@
       "source": "../../VU-Internal-External-RD/titleInput.tex",
       "job_market_paper": false,
       "with": null,
+      "authors": ["admin"],
+      "date": "2026-08-04",
+      "publication_types": ["3"],
+      "publication": "Working paper",
       "presentation": "\\href{http://asesec.org/jornadas_economia_industrial/programme.html}{JEI - Gran Canaria} (2022), \\href{https://sites.google.com/view/phd-evs2020/home?authuser=0}{Ph.D.-EVS} (2022), IO/Applied Micro Brownbag - Penn State (2023), VU Amsterdam Internal Seminar (2023), \\href{https://earie.org/programme-rome-2023/}{EARIE - Rome} (2023), Tinbergen Institute Ph.D. Seminar (2023), DKIIS - Valencia (2023), \\href{https://econ.la.psu.edu/comparative-analysis-of-enterprise-data-caed/}{CAED} - Penn State (2024), \\href{https://economicdynamics.org/sedam_2024/}{SED Meeting} - Barcelona (2024), \\href{https://us10.forward-to-friend.com/forward/preview?u=bb253d28cb05d3719c9e0c960&id=c939ef0aa0}{CEPR Workshop: Trade, Geography, and Industrial Organization - Erasmus Rotterdam} (2024, poster), \\href{https://sites.google.com/view/apioc-2024}{APIOC - Seoul} (2024), CEPR Symposium - Paris (2024, poster), EEA-ESEM - Bordeaux (2025), CEPR IO Virtual Gathering (2025)"
     },
     {
@@ -12,6 +16,10 @@
       "source": "../../Rust-Entry-Innovation-Area/LaTeX/titleInput.tex",
       "job_market_paper": false,
       "with": null,
+      "authors": ["admin"],
+      "date": "2026-08-03",
+      "publication_types": ["3"],
+      "publication": "Working paper",
       "presentation": "VU Amsterdam Internal Seminar (2025)"
     },
     {
@@ -19,6 +27,10 @@
       "source": "../../R-Subsidy-Innovation/LaTeX/titleInput.tex",
       "job_market_paper": false,
       "with": "C. Cincotta",
+      "authors": ["Costanza Cincotta", "admin"],
+      "date": "2026-08-02",
+      "publication_types": ["3"],
+      "publication": "Working paper",
       "presentation": null
     },
     {
@@ -26,7 +38,33 @@
       "source": "../../R-Mergers-Innovation-Computation/LaTeX/titleInput.tex",
       "job_market_paper": false,
       "with": "S. Dobbelaere and J. L. Moraga-Gonzalez",
+      "authors": ["Sabien Dobbelaere", "admin", "Jose Luis Moraga-Gonzalez"],
+      "date": "2026-07-01",
+      "publication_types": ["3"],
+      "publication": "Working paper",
       "presentation": "VU Amsterdam Internal Seminar (2024), Tinbergen Institute Workshop in Economics of Innovation (2025)"
+    }
+  ],
+  "published": [
+    {
+      "id": "jakarta-odd-even",
+      "title": "Evaluating the congestion-reducing effects of road rationing policy: Evidence from Jakarta's odd-even policy",
+      "abstract": "Travel demand restriction policies are becoming popular to reduce traffic jams in heavily congested urban areas. This paper evaluates the short-term impact of the odd-even number plate policy, a form of travel demand restriction, using Google Maps data on traffic congestion in Jakarta, one of the world's most congested cities. The estimation result of hourly travel time data at road section levels shows that the odd-even policy statistically significantly reduced travel time by 3.0%, on average, during the first month of its implementation. The effect was higher, about 10% during the weekend and the weekly afternoon peak hours. The estimates were robust across various specifications, and no effect was found when looking for travel speed changes in untreated parts of the road network. This study also suggests that road users are likely to depart early in the morning to avoid the policy. The effect seems stagnant after the fourth week of the policy's introduction. This study suggests that the odd-even number plate policy alone would be ineffective for the traffic congestion reduction agenda in Jakarta's urban environment.",
+      "authors": ["M. Halley Yudhistira", "admin", "Y. Sofiyandi", "M. Firman Hidayat"],
+      "date": "2025-03-01",
+      "publication_types": ["2"],
+      "publication": "*Case Studies on Transport Policy* (2025). Previously circulated as Does Traffic Management Matter? Evaluating Congestion Effect of Odd-Even Policy in Jakarta.",
+      "doi": "10.1016/j.cstp.2025.101380"
+    },
+    {
+      "id": "fe3o4-rgo-dmft",
+      "title": "Theoretical exploration of optical response of Fe3O4-reduced graphene oxide nanoparticle system within dynamical mean-field theory",
+      "abstract": "We theoretically investigate the optical conductivity and its related optical response of Fe3O4-reduced graphene oxide (rGO) nanoparticle system. Experimental data of magnetization of the Fe3O4-rGO nanoparticle system have shown that the saturation magnetization can be enhanced by controlling the rGO content with the maximum enhancement reached at the optimal rGO content of about 5 weight percentage. We hypothesize that the magnetization enhancement is due to spin-flipping of Fe ions at tetrahedral sites induced by oxygen vacancies at the Fe3O4 nanoparticle boundaries. These oxygen vacancies are formed due to adsorption of oxygen atoms by rGO flakes around the Fe3O4 nanoparticle. In this study, we aim to explore the implications of this effect to the optical response of the system as a function of the rGO content. Our model incorporates Hubbard-repulsive interactions between electrons occupying the eg orbitals of Fe3+ and Heisenberg-like interactions between electron spins and spins of Fe3+ ions. We treat the relevant interactions within mean-field and dynamical mean-field approximations. Our results are to be compared with the existing experimental reflectance data of Fe3O4 nanoparticle system.",
+      "authors": ["M. A. Majidi", "admin", "A. D. Fauzi", "W. Y. Phan", "A. Taufik", "R. Saleh", "A. Rusydi"],
+      "date": "2017-05-02",
+      "publication_types": ["2"],
+      "publication": "*IOP Conference Series: Materials Science and Engineering* 188(1), 012055 (2017).",
+      "doi": "10.1088/1757-899X/188/1/012055"
     }
   ]
 }

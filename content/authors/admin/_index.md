@@ -1,5 +1,5 @@
 ---
-bio: I am an applied economist interested in Industrial Organization and Innovation
+bio: PhD student in economics at VU Amsterdam and Tinbergen Institute. Industrial organization and the economics of innovation.
 education:
   courses:
   - course: Ph.D. in Economics
@@ -11,30 +11,28 @@ education:
   - course: BSc in Physics
     institution: University of Indonesia
     year: 2016
-email: abdurrahman<dot>regi<at>gmail<dot>com
+email: r.kusumaatmadja@vu.nl
 highlight_name: true
 interests:
-- Applied Economics (Industrial Organization, Innovation)
-- First Principles Thinking
-#organizations:
-#- name: VU Amsterdam
-#  url: https://vu.nl/en
-#- name: Tinbergen Institute
-#  url: https://tinbergen.nl/home
-role: Applied economist
+- Industrial Organization
+- Economics of Innovation
+- Applied Econometrics
+organizations:
+- name: VU Amsterdam
+  url: https://vu.nl/en
+- name: Tinbergen Institute
+  url: https://tinbergen.nl/home
+role: PhD student in Economics
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:abdurrahman.regi@gmail.com
+  link: mailto:r.kusumaatmadja@vu.nl
 - icon: envelope
   icon_pack: fas
-  link: mailto:regi.kusumaatmadja@proton.me
+  link: mailto:abdurrahman.regi@gmail.com
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/abdurrahmanregi
-# - icon: graduation-cap
-#   icon_pack: fas
-#   link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
 - icon: github
   icon_pack: fab
   link: https://github.com/abdurrahmanregi
@@ -45,14 +43,14 @@ superuser: true
 title: "Regi Kusumaatmadja"
 ---
 
-I consider myself an applied economist with interests in Industrial Organization and Innovation. I try to combine both applied theory and applied econometrics in my research.
+I am a PhD student in economics at VU Amsterdam and the Tinbergen Institute. I consider myself an applied economist and work in industrial organization, the economics of innovation, applied microeconomics, and applied econometrics, combining applied theory and applied econometrics. My supervisors are Sabien Dobbelaere and Jose Luis Moraga-Gonzalez. In May-June 2026 I visited CUNEF Universidad Madrid at the invitation of Costanza Cincotta. In the first half of 2023 I visited Penn State's economics department at the invitation of Mark J. Roberts.
 
-At this moment, I am very excited to dig deeper into how large language models (LLMs) and what people call agentic AI can help me with mathematical derivations and checking their coherency, as well as code implementations of such thoughts.
+I am currently interested in how and why firms allocate their research: the mode of that research, why firms enter certain areas, and how changes in market structure affect the scale and composition of their research.
 
-Here, I write some of my random thoughts, not necessarily in the standard academic economist template. For that, I suggest you to visit my academic Google site <a href="https://sites.google.com/view/regi-kusumaatmadja/" target="_blank">here</a>. You can check my CV [here](/kusumaatmadja_cv_tinbergen.pdf) and my research statement [here](/kusumaatmadja_researchstatement.pdf).
+In my spare time I play tennis. Email me if you want to play!
 
-I also like to play tennis. Send me an email if you want to talk or play some games.
+**News:** I will be joining Düsseldorf Institute for Competition Economics (DICE) as a postdoctoral researcher in October 2026.
 
-**News**: I will be joining Düsseldorf Institute for Competition Economics (DICE) as a postdoctoral researcher in October '26.
+CV [here](/kusumaatmadja_cv_tinbergen.pdf) and research statement [here](/kusumaatmadja_researchstatement.pdf).
 
-<em>(website last update: 2026-03-18)</em>
+<em>(website last update: 2026-08-27)</em>

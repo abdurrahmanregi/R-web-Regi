@@ -1,4 +1,4 @@
-"""Pull titles and abstracts from each paper's titleInput.tex into the CV."""
+"""Pull titles and abstracts from each paper's titleInput.tex into the CV and Hugo."""
 
 from __future__ import annotations
 
@@ -8,9 +8,12 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+REPO = ROOT.parent
 MANIFEST = ROOT / "papers.json"
 OUT_DIR = ROOT / "generated"
 OUT_FILE = OUT_DIR / "research_in_progress.tex"
+HUGO_PUB_DIR = REPO / "content" / "publication"
+GENERATED_MARKER = "generated-by: cv/extract_papers.py"
 
 
 def find_braced_arg(text: str, open_brace: int) -> tuple[str, int]:
@@ -112,6 +115,24 @@ def extract_abstract(tex: str) -> str:
     return collapse_ws(body)
 
 
+def latex_to_markdown(text: str) -> str:
+    text = text.replace(r"\&", "&")
+    text = text.replace(r"\%", "%")
+    text = text.replace(r"\$", "$")
+    text = text.replace(r"\`a", "à")
+    text = re.sub(r"\\emph\{([^}]*)\}", r"*\1*", text)
+    text = re.sub(r"\\textit\{([^}]*)\}", r"*\1*", text)
+    text = re.sub(r"\\textbf\{([^}]*)\}", r"**\1**", text)
+    text = text.replace("``", '"').replace("''", '"')
+    text = text.replace(r"\ ", " ")
+    text = re.sub(r"\\hspace\*?\{[^}]*\}", " ", text)
+    text = text.replace("---", ", ")
+    text = text.replace("--", "-")
+    text = re.sub(r"\\[a-zA-Z]+\*?(?:\[[^\]]*\])?", "", text)
+    text = text.replace("{", "").replace("}", "")
+    return collapse_ws(text)
+
+
 def heading(title: str, job_market: bool, with_authors: str | None) -> str:
     pieces = [title]
     if job_market:
@@ -144,6 +165,83 @@ def render(papers: list[dict]) -> str:
     return "\n".join(blocks) + "\n"
 
 
+def yaml_quote(value: str) -> str:
+    return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+def yaml_block(text: str, indent: int = 2) -> str:
+    pad = " " * indent
+    return "|\n" + "\n".join(pad + line if line else pad for line in text.splitlines())
+
+
+def write_hugo_page(paper_id: str, title: str, abstract: str, authors: list[str], date: str, publication_types: list[str], publication: str, doi: str = "") -> Path:
+    folder = HUGO_PUB_DIR / paper_id
+    folder.mkdir(parents=True, exist_ok=True)
+    path = folder / "index.md"
+    lines = [
+        "---",
+        f"# {GENERATED_MARKER}",
+        f"title: {yaml_quote(title)}",
+        "authors:",
+    ]
+    for author in authors:
+        lines.append(f"- {yaml_quote(author)}")
+    lines.extend(
+        [
+            f"date: {date}",
+            f"publishDate: {date}",
+            "publication_types:",
+        ]
+    )
+    for pub_type in publication_types:
+        lines.append(f'- "{pub_type}"')
+    lines.append(f"publication: {yaml_quote(publication)}")
+    if doi:
+        lines.append(f"doi: {yaml_quote(doi)}")
+    lines.append("abstract: " + yaml_block(abstract))
+    lines.extend(
+        [
+            "featured: false",
+            "---",
+            "",
+        ]
+    )
+    path.write_text("\n".join(lines), encoding="utf-8")
+    return path
+
+
+def write_hugo_publications(spec: dict) -> list[str]:
+    written = []
+    for paper in spec["papers"]:
+        src = Path(paper["source"])
+        tex = strip_line_comments(src.read_text(encoding="utf-8"))
+        title = latex_to_markdown(extract_title(tex))
+        abstract = latex_to_markdown(extract_abstract(tex))
+        path = write_hugo_page(
+            paper["id"],
+            title,
+            abstract,
+            paper.get("authors") or ["admin"],
+            paper["date"],
+            paper.get("publication_types") or ["3"],
+            paper.get("publication") or "Working paper",
+        )
+        written.append(f"{path.name}: {title}")
+    for paper in spec.get("published") or []:
+        path = write_hugo_page(
+            paper["id"],
+            paper["title"],
+            paper["abstract"],
+            paper.get("authors") or ["admin"],
+            paper["date"],
+            paper.get("publication_types") or ["2"],
+            paper["publication"],
+            paper.get("doi") or "",
+        )
+        written.append(f"{path.name}: {paper['title']}")
+    return written
+
+
 def main() -> int:
     spec = json.loads(MANIFEST.read_text(encoding="utf-8"))
     papers = spec["papers"]
@@ -157,6 +255,8 @@ def main() -> int:
         src = Path(paper["source"])
         title = extract_title(strip_line_comments(src.read_text(encoding="utf-8")))
         print(f"  - {title}")
+    for line in write_hugo_publications(spec):
+        print(f"  hugo {line}")
     return 0
 
 

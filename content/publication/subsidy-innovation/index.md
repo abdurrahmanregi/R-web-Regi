@@ -1,0 +1,15 @@
+---
+# generated-by: cv/extract_papers.py
+title: "The Impact of Government Financial Assistance on the Scope and Direction of Firm Innovation"
+authors:
+- "Costanza Cincotta"
+- "admin"
+date: 2026-08-02
+publishDate: 2026-08-02
+publication_types:
+- "3"
+publication: "Working paper"
+abstract: |
+  Governments spend hundreds of billions of dollars each year to support private-sector innovation, but it is unclear whether this money expands existing research, redirects it toward new technologies, or reallocates innovation away from other firms. To address this question, we develop a two-stage model in which firms first choose an R&D portfolio and then compete in prices à la Salop. Financially constrained firms underinvest, and even unconstrained firms under-provide quality because product-market competition leaves a gap between private and social returns. Liquidity assistance can relax the cash constraint, while the quality gap remains. Cheaper cash can expand how much a recipient patents and how many technology areas it covers. If the firm simply scales up the research it already conducts, the composition of that research does not change. Assistance that is targeted toward particular activities can redirect the portfolio. Nearby rivals may expand through knowledge pooling or contract through business stealing. We take these implications to a panel of U.S. public firms from 2000 to 2021, combining Good Jobs First awards with patent data. Scope measures how much a firm patents and how many technology areas it covers. Direction measures whether those patents align with frontier or peer technologies. To estimate causal effects, we first reweight untreated firms so that they match recipients on pre-treatment characteristics, and we then estimate a stacked difference-in-differences. Our model implies that distant rivals provide a better control group for the treated firm's own response. Nearby rivals may themselves be affected by business stealing or knowledge pooling, so comparing the two groups traces how those nearby rivals respond. We implement this design using both industry codes and text-based product-market overlap. Distant rivals provide the preferred reading of the treated firm's own response. Financial assistance expands the scale of recipients' patent portfolios. Relative to distant industry controls, intensive scope rises by about 10.5 percent after an award. Relative to firms with little product-market overlap, the same contrast is about 3 percent. Direction shifts toward the industry's most-cited technologies, and the shift is strongest for cash grants. When nearby means high text-based product-market overlap and distant means little or none, the product-market spills are indistinguishable from zero, so those nearby rivals' patenting scale does not move. When nearby means the same two-digit industry, the close estimate on scale is smaller than the distant estimate, which means industry-code neighbors expand as well, the knowledge-pooling case.
+featured: false
+---

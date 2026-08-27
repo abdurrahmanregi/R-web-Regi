@@ -1,9 +1,8 @@
 ---
-active: false
 cms_exclude: false
 header:
   caption: ""
   image: ""
-title: Publications, Working Papers, Work in Progress
+title: Research
 view: 4
 ---
