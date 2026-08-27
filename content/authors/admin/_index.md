@@ -51,6 +51,6 @@ In my spare time I play tennis. Email me if you want to play!
 
 **News:** I will be joining Düsseldorf Institute for Competition Economics (DICE) as a postdoctoral researcher in October 2026.
 
-CV [here](/kusumaatmadja_cv_tinbergen.pdf) and research statement [here](/kusumaatmadja_researchstatement.pdf).
+CV [here](/kusumaatmadja_cv_tinbergen.pdf) and research statement [here](/kusumaatmadja_researchstatement.pdf). Occasional random notes are on [Posts](/post/).
 
 <em>(website last update: 2026-08-27)</em>
