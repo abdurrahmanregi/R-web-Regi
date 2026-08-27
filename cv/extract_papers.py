@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -174,7 +175,28 @@ def yaml_block(text: str, indent: int = 2) -> str:
     return "|\n" + "\n".join(pad + line if line else pad for line in text.splitlines())
 
 
-def write_hugo_page(paper_id: str, title: str, abstract: str, authors: list[str], date: str, publication_types: list[str], publication: str, doi: str = "") -> Path:
+def pdf_dest_name(paper_id: str) -> str:
+    return f"kusumaatmadja_{paper_id.replace('-', '_')}.pdf"
+
+
+def copy_paper_pdf(paper: dict) -> str | None:
+    rel = paper.get("pdf")
+    if not rel:
+        return None
+    src = Path(rel)
+    if not src.is_absolute():
+        src = (ROOT / src).resolve()
+    if not src.is_file():
+        raise FileNotFoundError(f"paper PDF not found: {src}")
+    name = pdf_dest_name(paper["id"])
+    dest_dir = HUGO_PUB_DIR / paper["id"]
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    dest = dest_dir / name
+    shutil.copy2(src, dest)
+    return name
+
+
+def write_hugo_page(paper_id: str, title: str, abstract: str, authors: list[str], date: str, publication_types: list[str], publication: str, doi: str = "", url_pdf: str = "") -> Path:
     folder = HUGO_PUB_DIR / paper_id
     folder.mkdir(parents=True, exist_ok=True)
     path = folder / "index.md"
@@ -198,6 +220,8 @@ def write_hugo_page(paper_id: str, title: str, abstract: str, authors: list[str]
     lines.append(f"publication: {yaml_quote(publication)}")
     if doi:
         lines.append(f"doi: {yaml_quote(doi)}")
+    if url_pdf:
+        lines.append(f"url_pdf: {yaml_quote(url_pdf)}")
     lines.append("abstract: " + yaml_block(abstract))
     lines.extend(
         [
@@ -217,6 +241,8 @@ def write_hugo_publications(spec: dict) -> list[str]:
         tex = strip_line_comments(src.read_text(encoding="utf-8"))
         title = latex_to_markdown(extract_title(tex))
         abstract = latex_to_markdown(extract_abstract(tex))
+        pdf_name = copy_paper_pdf(paper)
+        url_pdf = f"/publication/{paper['id']}/{pdf_name}" if pdf_name else ""
         path = write_hugo_page(
             paper["id"],
             title,
@@ -225,8 +251,11 @@ def write_hugo_publications(spec: dict) -> list[str]:
             paper["date"],
             paper.get("publication_types") or ["3"],
             paper.get("publication") or "Working paper",
+            url_pdf=url_pdf,
         )
         written.append(f"{path.name}: {title}")
+        if pdf_name:
+            written.append(f"  pdf {pdf_name}")
     for paper in spec.get("published") or []:
         path = write_hugo_page(
             paper["id"],

@@ -15,6 +15,7 @@ Local-only compile. Do not round-trip a PDF from Overleaf.
 
 - Edit `cv/kusumaatmadja_cv.tex` for CV chrome (education, talks lists live in `cv/papers.json`).
 - `cv/compile.ps1` extracts titles/abstracts from sibling paper `titleInput.tex` files, writes `cv/generated/research_in_progress.tex` and `content/publication/<id>/index.md`, compiles with `pdflatex`, copies to `static/kusumaatmadja_cv_tinbergen.pdf`. Netlify does not see the paper repos; commit the generated publication pages.
+- Optional `pdf` in `cv/papers.json` copies that file (never moves it) into `content/publication/<id>/kusumaatmadja_<id>.pdf` and sets `url_pdf`. Only listed papers get a PDF button. Commit those PDFs too.
 - Dissertation chapter order is the array order in `cv/papers.json`.
 - Paper paths are relative to `cv/` and assume repos sit next to this one under `Work/` (JMP, Entry, Subsidy, Mergers).
 - Ignore `cv/build/`. Commit the generated snippet and the PDF so GitHub/Netlify do not need the paper repos or TeX.

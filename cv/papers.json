@@ -3,6 +3,7 @@
     {
       "id": "internal-external-rd",
       "source": "../../VU-Internal-External-RD/titleInput.tex",
+      "pdf": "../../VU-Internal-External-RD/main.pdf",
       "job_market_paper": false,
       "with": null,
       "authors": ["admin"],
@@ -14,6 +15,7 @@
     {
       "id": "entry-innovation-areas",
       "source": "../../Rust-Entry-Innovation-Area/LaTeX/titleInput.tex",
+      "pdf": "../../Rust-Entry-Innovation-Area/LaTeX/main_write.pdf",
       "job_market_paper": false,
       "with": null,
       "authors": ["admin"],
