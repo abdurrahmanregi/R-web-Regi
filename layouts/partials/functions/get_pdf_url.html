@@ -1,0 +1,12 @@
+{{/* Resolve a publication PDF permalink, or empty if none. */}}
+{{ $page := . }}
+{{ $pdf := "" }}
+{{ $resource := $page.Resources.GetMatch (printf "%s.pdf" $page.File.ContentBaseName) }}
+{{ with $resource }}
+  {{ $pdf = .RelPermalink }}
+{{ else }}
+  {{ with $page.Params.url_pdf }}
+    {{ $pdf = . | relURL }}
+  {{ end }}
+{{ end }}
+{{ return $pdf }}

@@ -15,6 +15,7 @@ OUT_DIR = ROOT / "generated"
 OUT_FILE = OUT_DIR / "research_in_progress.tex"
 HUGO_PUB_DIR = REPO / "content" / "publication"
 GENERATED_MARKER = "generated-by: cv/extract_papers.py"
+SITE_URL = "https://regikusumaatmadja.com"
 
 
 def find_braced_arg(text: str, open_brace: int) -> tuple[str, int]:
@@ -134,14 +135,22 @@ def latex_to_markdown(text: str) -> str:
     return collapse_ws(text)
 
 
-def heading(title: str, job_market: bool, with_authors: str | None) -> str:
-    pieces = [title]
-    if job_market:
-        pieces[0] = f"{title} (Job Market Paper)"
-    head = f"\\textbf{{{pieces[0]}}}"
+def heading(title: str, job_market: bool, with_authors: str | None, pdf_url: str | None = None) -> str:
+    shown = f"{title} (Job Market Paper)" if job_market else title
+    bold = f"\\textbf{{{shown}}}"
+    if pdf_url:
+        head = f"{{\\hypersetup{{urlcolor=blue}}\\href{{{pdf_url}}}{{{bold}}}}}"
+    else:
+        head = bold
     if with_authors:
         head += f", with {with_authors}."
     return head + "\\\\[0.35em]"
+
+
+def public_pdf_url(paper: dict) -> str | None:
+    if not paper.get("pdf"):
+        return None
+    return f"{SITE_URL}/publication/{paper['id']}/{pdf_dest_name(paper['id'])}"
 
 
 def render(papers: list[dict]) -> str:
@@ -155,7 +164,10 @@ def render(papers: list[dict]) -> str:
         abstract = extract_abstract(tex)
         if not abstract:
             raise ValueError(f"empty abstract in {src}")
-        block = [heading(title, bool(paper.get("job_market_paper")), paper.get("with")), abstract + "\\par"]
+        block = [
+            heading(title, bool(paper.get("job_market_paper")), paper.get("with"), public_pdf_url(paper)),
+            abstract + "\\par",
+        ]
         presentation = paper.get("presentation")
         if presentation:
             block.append("\\vspace*{0.05in}")
