@@ -53,4 +53,4 @@ In my spare time I play tennis. Email me if you want to play!
 
 CV [here](/kusumaatmadja_cv_tinbergen.pdf) and research statement [here](/kusumaatmadja_researchstatement.pdf). Occasional random notes are on [Posts](/post/).
 
-<em>(website last update: 2026-08-27)</em>
+<em>(website last update: 2026-09-03)</em>
