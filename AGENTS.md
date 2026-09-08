@@ -16,7 +16,7 @@ Local-only compile. Do not round-trip a PDF from Overleaf or Word.
 - Edit `cv/kusumaatmadja_cv.tex` for CV chrome (education, talks lists live in `cv/papers.json`).
 - Edit `cv/kusumaatmadja_researchstatement.tex` by hand from current paper abstracts. Do not auto-paste abstracts. Paper order: Internal/External, Entry, Assistance, Mergers.
 - `cv/compile.ps1` extracts titles/abstracts from sibling paper `titleInput.tex` files, writes `cv/generated/research_in_progress.tex` and `content/publication/<id>/index.md`, compiles the CV and research statement with `pdflatex`, copies to `static/kusumaatmadja_cv_tinbergen.pdf` and `static/kusumaatmadja_researchstatement.pdf`. Netlify does not see the paper repos; commit the generated publication pages and both PDFs.
-- Optional `pdf` in `cv/papers.json` copies that file (never moves it) into `content/publication/<id>/kusumaatmadja_<id>.pdf` and sets `url_pdf`. Only listed papers get a PDF button. Commit those PDFs too.
+- Optional `pdf` in `cv/papers.json` copies that file (never moves it) into `content/publication/<id>/kusumaatmadja_<id>.pdf` and sets `url_pdf`. Only listed papers get a PDF button. Commit those PDFs too. Publication titles on the site (and in the CV) go to the abstract page; do not point titles at the PDF.
 - Dissertation chapter order is the array order in `cv/papers.json`.
 - Paper paths are relative to `cv/` and assume repos sit next to this one under `Work/` (JMP, Entry, Subsidy, Mergers).
 - Ignore `cv/build/`. Commit the generated snippet and the PDFs so GitHub/Netlify do not need the paper repos or TeX.

@@ -135,11 +135,11 @@ def latex_to_markdown(text: str) -> str:
     return collapse_ws(text)
 
 
-def heading(title: str, job_market: bool, with_authors: str | None, pdf_url: str | None = None) -> str:
+def heading(title: str, job_market: bool, with_authors: str | None, page_url: str | None = None) -> str:
     shown = f"{title} (Job Market Paper)" if job_market else title
     bold = f"\\textbf{{{shown}}}"
-    if pdf_url:
-        head = f"{{\\hypersetup{{urlcolor=blue}}\\href{{{pdf_url}}}{{{bold}}}}}"
+    if page_url:
+        head = f"{{\\hypersetup{{urlcolor=blue}}\\href{{{page_url}}}{{{bold}}}}}"
     else:
         head = bold
     if with_authors:
@@ -147,10 +147,8 @@ def heading(title: str, job_market: bool, with_authors: str | None, pdf_url: str
     return head + "\\\\[0.35em]"
 
 
-def public_pdf_url(paper: dict) -> str | None:
-    if not paper.get("pdf"):
-        return None
-    return f"{SITE_URL}/publication/{paper['id']}/{pdf_dest_name(paper['id'])}"
+def public_page_url(paper: dict) -> str:
+    return f"{SITE_URL}/publication/{paper['id']}/"
 
 
 def render(papers: list[dict]) -> str:
@@ -165,7 +163,7 @@ def render(papers: list[dict]) -> str:
         if not abstract:
             raise ValueError(f"empty abstract in {src}")
         block = [
-            heading(title, bool(paper.get("job_market_paper")), paper.get("with"), public_pdf_url(paper)),
+            heading(title, bool(paper.get("job_market_paper")), paper.get("with"), public_page_url(paper)),
             abstract + "\\par",
         ]
         presentation = paper.get("presentation")

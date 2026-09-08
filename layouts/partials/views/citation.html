@@ -1,11 +1,7 @@
 {{ $item := .item }}
 {{ $has_attachments := partial "functions/has_attachments" $item }}
-{{ $pdf := partial "functions/get_pdf_url" $item }}
-{{ $title_href := $item.RelPermalink }}
-{{ if $pdf }}
-  {{ $title_href = $pdf }}
-{{ end }}
 
+{{/* Titles go to the abstract page. The PDF button comes from page_links / url_pdf. */}}
 <div class="pub-list-item view-citation" style="margin-bottom: 1rem">
   <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
 
@@ -16,7 +12,7 @@
     {{ partial "page_metadata_authors" $item }}
   </span>
   ({{- $item.Date.Format "2006" -}}).
-  <a href="{{ $title_href }}"{{ if $pdf }} target="_blank" rel="noopener" title="Open PDF"{{ end }}>{{ $item.Title }}</a>.
+  <a href="{{ $item.RelPermalink }}">{{ $item.Title }}</a>.
   {{ if $item.Params.publication_short }}
     {{- $item.Params.publication_short | markdownify -}}.
   {{ else if $item.Params.publication }}
@@ -30,7 +26,7 @@
   <span class="article-metadata li-cite-author">
     {{ partial "page_metadata_authors" $item }}.
   </span>
-  <a href="{{ $title_href }}"{{ if $pdf }} target="_blank" rel="noopener" title="Open PDF"{{ end }}>{{ $item.Title }}</a>.
+  <a href="{{ $item.RelPermalink }}">{{ $item.Title }}</a>.
   {{ if $item.Params.publication_short }}
     {{- $item.Params.publication_short | markdownify -}},
   {{ else if $item.Params.publication }}
