@@ -10,6 +10,6 @@ publication_types:
 publication: "Working paper"
 url_pdf: "/publication/internal-external-rd/kusumaatmadja_internal_external_rd.pdf"
 abstract: |
-  This paper analyzes the costs and benefits of in-house and contracted-out R&D among Dutch ICT firms from 2000 to 2020. I estimate a dynamic discrete-choice model with mode-specific investment costs. Contracted-out R&D costs about 2.45 million euros, versus 0.13 million for in-house R&D, which is why so few firms contract out alone. Doing both is cheaper than the sum of the two costs: in-house R&D offsets almost all of the extra cost of going outside. Productivity gains are similar across modes. A uniform subsidy raises R&D participation and firm value by more than a subsidy aimed only at in-house R&D.
+  This paper analyzes the costs and benefits of in-house and contracted-out R&D. Estimating a dynamic model on Dutch ICT firms from 2000 to 2020, I find that productivity gains are similar across R&D activities, but that contracting R&D out is much more costly than doing it in-house. This explains why so few firms only contract out. However, for a firm that also does in-house R&D, 94% of this extra cost disappears, which I interpret as a hold-up problem in the external contract. Finally, a uniform subsidy raises R&D participation and firm value more than a subsidy for in-house R&D only.
 featured: false
 ---
